@@ -1,24 +1,25 @@
-# README
+# sunny milk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+乳業メーカーのWebアプリケーション。
+ユーザーは商品を検索し、開発秘話などの情報を閲覧できるとともに、各商品に対するアレンジレシピを投稿できる。  毎月最も「いいね」がついたレシピを投稿したユーザーには、商品詰め合わせが郵送される。
 
-Things you may want to cover:
 
-* Ruby version
+### サイトテーマ
+コーポレートサイト
 
-* System dependencies
 
-* Configuration
+### テーマを選んだ理由
+乳業メーカーに勤務する中で、食品メーカーの商品開発や生産には、多くの社員の苦労や努力が必要であり、その末に価値ある商品が製品化されることを学んだ。一方で、商品の価値が消費者にきちんと伝わっていないというジレンマを感じた。  これのジレンマを解消するために、「消費者に商品の価値が伝わり、自社商品に愛着を持ってもらうため」のWebアプリケーションを開発した。
 
-* Database creation
 
-* Database initialization
+### ターゲットユーザ
+チーズなどの乳製品は好きだが、購入する商品のメーカーにはこだわりを持っていない、料理好きな女性。
 
-* How to run the test suite
+### 主な利用シーン
+献立を考えるとき
 
-* Services (job queues, cache servers, search engines, etc.)
+## 設計書
 
-* Deployment instructions
-
-* ...
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1x6If5R6hqW-GXbkdq9fuBvQX03jUEdKoUE6HN7KIzzQ/edit?usp=sharing
