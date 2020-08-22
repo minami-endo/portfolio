@@ -1,0 +1,12 @@
+<h1>Admins::Users#show</h1>
+<p>Find me in app/views/admins/users/show.html.erb</p>
+
+
+<%= attachment_image_tag @user, :image, size:'150x100' %>
+	<%= @user.name %>
+	<%= @user.comment %>
+	<%= @user.email %>
+    <%= @user.phone_number %>
+    <%= @user.postal_code %>
+    <%= @user.address %>
+    <%= @user.is_deleted_i18n %>

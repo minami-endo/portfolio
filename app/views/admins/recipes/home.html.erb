@@ -1,0 +1,25 @@
+<h1>Admins::Recipes#home</h1>
+<p>Find me in app/views/admins/recipes/home.html.erb</p>
+
+
+<h3>本日投稿されたレシピ<%= @today_recipe %>件</h3>
+<% @recipes.each do |recipe| %>
+  <% if(recipe[:created_at].to_s.match(/#{Date.today.to_s}.+/)) %>
+    <%= recipe.name %>
+    <%= attachment_image_tag recipe, :image, size:'150x100' %>
+  <% end %>
+<% end %>
+
+
+
+<!--ここが表示されない-->
+<% @recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
+<% if(recipe_rank[:created_at].to_s.match(/#{Range.new(Time.zone.now.ago(3.month), Time.zone.now.since(3.month)).to_s}.+/)) %>
+  第<%= rank %>位
+  <%= attachment_image_tag recipe_rank, :image, size:'150x100' %>
+  <%= link_to recipe_rank.name, admins_recipe_path(recipe_rank) %>
+  投稿者：<%= recipe_rank.user.name %>
+  いいね数<%= recipe_rank.likes_count %>
+<% end %>
+<% end %>
+

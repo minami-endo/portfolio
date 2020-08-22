@@ -1,0 +1,17 @@
+<h1>Admins::Recipes#ranking</h1>
+<p>Find me in app/views/admins/recipes/ranking.html.erb</p>
+
+
+
+<h1>レシピランキング</h1>
+
+<% @recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
+  <% if rank == 1 %>
+    <%= link_to "一位のユーザー情報", admins_recipe_top_path %>
+  <% end %>
+  第<%= rank %>位
+  <%= attachment_image_tag recipe_rank, :image, size:'150x100' %>
+  <%= link_to recipe_rank.name, admins_recipe_path(recipe_rank) %>
+  投稿者：<%= recipe_rank.user.name %>
+  いいね数<%= recipe_rank.likes_count %>
+<% end %>

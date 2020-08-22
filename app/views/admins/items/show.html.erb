@@ -1,0 +1,12 @@
+<h1>Admins::Items#show</h1>
+<p>Find me in app/views/admins/items/show.html.erb</p>
+
+
+<%= attachment_image_tag @item, :image, size:'150x100' %>
+<%= @item.name %>
+<%= @item.caption %>
+<%= @item.price %>
+
+<%= link_to "編集する", edit_admins_item_path(@item) %>
+<%= link_to "削除する", admins_item_path(@item), method: :delete, data: {confirm: "この商品を削除しますか？"} %>
+

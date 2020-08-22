@@ -1,0 +1,19 @@
+<h1>Public::Recipes#show</h1>
+<p>Find me in app/views/public/recipes/show.html.erb</p>
+
+
+<%= attachment_image_tag @recipe, :image, size:'150x100' %>
+	<%= @recipe.name %>
+	<%= @recipe.ingredient %>
+	<%= @recipe.time %>分
+	<%= @recipe.how_to_make %>
+	<% if public_user_signed_in? %>
+      <%= render 'public/likes/like', recipe: @recipe %>
+    <% else %>
+      いいね数<%= @recipe.likes_count %>
+    <% end %>
+
+<% if public_user_signed_in? && @recipe.user_id == current_public_user.id %>
+	<%= link_to "レシピを編集する", edit_public_recipe_path(@recipe) %>
+	<%= link_to "削除する", public_recipe_path(@recipe), method: :delete, data: {confirm: "この商品を削除しますか？"} %>
+<% end %>

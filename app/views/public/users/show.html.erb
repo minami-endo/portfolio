@@ -1,0 +1,25 @@
+<h1>Public::Users#show</h1>
+<p>Find me in app/views/public/users/show.html.erb</p>
+
+
+<%= attachment_image_tag @user, :image, size:'200x200' %>
+<%= @user.name %>
+<%= @user.comment %>
+
+<% if public_user_signed_in? && @user.id == current_public_user.id %>
+    <%= @user.address %>
+    <%= @user.postal_code %>
+    <%= @user.phone_number %>
+    <%= @user.email %>
+    <%= link_to "プロフィールを編集する", edit_public_user_path(@user) %>
+    <%= link_to "退会する", public_user_unsubscribe_path(@user) %>
+<% end %>
+
+<h3>投稿したアレンジレシピ</h3>
+<% @recipes.each do |recipe| %>
+  <%= attachment_image_tag recipe, :image, size:'150x100' %>
+	<%= link_to recipe.name, public_recipe_path(recipe) %>
+	<%= recipe.ingredient %>
+	<%= recipe.time %>分
+	<%= recipe.how_to_make %>
+<% end %>

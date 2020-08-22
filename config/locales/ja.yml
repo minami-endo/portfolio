@@ -1,0 +1,6 @@
+ja:
+  enums:
+    user:
+      is_deleted:
+        available: "有効会員"
+        withdrawal: "退会済み"

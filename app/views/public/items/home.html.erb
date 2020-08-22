@@ -1,0 +1,21 @@
+<h1>Public::Items#home</h1>
+<p>Find me in app/views/public/items/home.html.erb</p>
+
+<h1>sunny milk</h1>
+
+<% @items.each do |item| %>
+    <%= link_to public_item_path(item) do %>
+      <%= attachment_image_tag item, :image, size:'150x100' %>
+    <% end %>
+<% end %>
+
+<% if public_user_signed_in? %>
+  <p>月間レシピランキング一位の方には豪華商品をプレゼントします</p>
+<% else %>
+  <p>会員登録すると月間レシピランキングが見られるようになります</p>
+<% end %>
+
+<h2>会社概要</h2>
+
+<h2>工場見学</h2>
+
