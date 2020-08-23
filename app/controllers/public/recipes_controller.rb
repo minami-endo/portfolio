@@ -2,6 +2,8 @@ class Public::RecipesController < ApplicationController
   before_action :authenticate_public_user!, except: [:index, :show, :ranking]
 
   def ranking
+    @monthly_ranking = Recipe.monthly_ranking
+    #いらない↓つきに囚われないランキングを表示させないなら、いらない
     @recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
   end
 
