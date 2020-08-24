@@ -28,6 +28,7 @@ class Public::UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :comment, :image, :postal_code, :address, :email, :phone_number, :is_deleted)
   end

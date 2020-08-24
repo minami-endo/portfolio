@@ -4,3 +4,8 @@ ja:
       is_deleted:
         available: "有効会員"
         withdrawal: "退会済み"
+    recipe:
+      difficulty_level:
+        easy: "簡単"
+        medium: "普通"
+        hard: "難しい"

@@ -8,10 +8,14 @@ class User < ApplicationRecord
   has_many :like_stories, through: :likes, source: :story
   attachment :image
 
+  validates :name, presence: true, length: { minimum: 1, maximum: 30 }
+  validates :email, presence: true, length: { minimum: 1, maximum: 40 }
+  validates :phone_number, presence: true
+  validates :address, presence: true
+  validates :postal_code, presence: true, length: { maximum: 100 }
+
   enum is_deleted: { available: false, withdrawal: true }
   def active_for_authentication?
-    super && (self.is_deleted == "available")
+    super && (is_deleted == "available")
   end
-
-
 end

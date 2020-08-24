@@ -13,5 +13,8 @@
 	  <%= f.text_field :time %>
 	<%= f.label :作り方 %>
 	  <%= f.text_area :how_to_make %>
+	<%= f.label :難易度 %>
+	  <%= f.select :difficulty_level, options_for_select(Recipe.difficulty_levels_i18n.invert) %>
+
 	<%= f.submit "更新する" %>
 <% end %>

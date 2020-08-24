@@ -5,7 +5,7 @@ class Admins::RecipesController < ApplicationController
     @recipes = Recipe.all
     @today_recipe = 0
     @recipes.each do |recipe|
-      if recipe[:created_at].to_s.match(/#{Date.today.to_s}.+/)
+      if recipe[:created_at].to_s.match(/#{Date.today}.+/)
         @today_recipe += 1
       end
     end
@@ -18,7 +18,7 @@ class Admins::RecipesController < ApplicationController
       @recipes = @search.result
     else
       params[:q] = { sorts: 'id desc' }
-      @search = Recipe.ransack()
+      @search = Recipe.ransack
       @recipes = Recipe.all
     end
 
@@ -37,5 +37,4 @@ class Admins::RecipesController < ApplicationController
   def search_params
     params.require(:q).permit(:sorts)
   end
-
 end

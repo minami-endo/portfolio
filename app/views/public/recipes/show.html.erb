@@ -7,6 +7,7 @@
 	<%= @recipe.ingredient %>
 	<%= @recipe.time %>分
 	<%= @recipe.how_to_make %>
+	<%= @recipe.difficulty_level_i18n %>
 	<% if public_user_signed_in? %>
       <%= render 'public/likes/like', recipe: @recipe %>
     <% else %>

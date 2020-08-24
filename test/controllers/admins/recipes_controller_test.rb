@@ -25,5 +25,4 @@ class Admins::RecipesControllerTest < ActionDispatch::IntegrationTest
     get admins_recipes_top_url
     assert_response :success
   end
-
 end

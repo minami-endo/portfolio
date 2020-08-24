@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
-
-
   namespace :public do
-  	devise_for :users, controllers: {
-		sessions: 'public/users/sessions',
-		registrations: 'public/users/registrations',
-		passwords: 'public/users/passwords'
-	  }
+    devise_for :users, controllers: {
+      sessions: 'public/users/sessions',
+      registrations: 'public/users/registrations',
+      passwords: 'public/users/passwords',
+    }
 
     get 'recipes/ranking', to: 'recipes#ranking', as: 'recipes_ranking'
     resources :recipes
 
-    post '/like/:recipe_id', to: 'likes#like',   as: 'like'
+    post '/like/:recipe_id', to: 'likes#like', as: 'like'
     delete '/like/:recipe_id', to: 'likes#unlike', as: 'unlike'
 
     resources :items, only: [:index, :show]
@@ -22,23 +20,21 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update]
   end
 
-
   namespace :admins do
-  	devise_for :admins, controllers: {
-		sessions: 'admins/admins/sessions',
-		registrations: 'admins/admins/registrations',
-		passwords: 'client/admins/passwords'
-	  }
+    devise_for :admins, controllers: {
+      sessions: 'admins/admins/sessions',
+      registrations: 'admins/admins/registrations',
+      passwords: 'client/admins/passwords',
+    }
 
     get 'recipes/home', to: 'recipes#home', as: 'recipe_home'
     get 'recipes/top', to: 'recipes#top', as: 'recipe_top'
-  	resources :recipes, only: [:index, :show]
+    resources :recipes, only: [:index, :show]
 
     resources :items
 
     resources :users, only: [:index, :show]
   end
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

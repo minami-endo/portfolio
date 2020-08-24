@@ -14,5 +14,7 @@
 	<%= f.label :作り方 %>
 	  <%= f.text_area :how_to_make %>
 	  <%= f.hidden_field :item_id, value: @item.id %>
+	<%= f.label :難易度 %>
+	  <%= f.select :difficulty_level, options_for_select(Recipe.difficulty_levels_i18n.invert) %>
 	<%= f.submit "作成する" %>
 <% end %>

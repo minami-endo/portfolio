@@ -3,8 +3,8 @@ class Public::RecipesController < ApplicationController
 
   def ranking
     @monthly_ranking = Recipe.monthly_ranking
-    #いらない↓つきに囚われないランキングを表示させないなら、いらない
-    #@recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
+    # いらない↓つきに囚われないランキングを表示させないなら、いらない
+    # @recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
   end
 
   def index
@@ -13,7 +13,7 @@ class Public::RecipesController < ApplicationController
       @recipes = @search.result
     else
       params[:q] = { sorts: 'id desc' }
-      @search = Recipe.ransack()
+      @search = Recipe.ransack
       @recipes = Recipe.all
     end
 
@@ -55,9 +55,11 @@ class Public::RecipesController < ApplicationController
   end
 
   private
+
   def recipe_params
     params.require(:recipe).permit(:user_id, :item_id, :image, :name, :ingredient, :time, :difficulty_level, :how_to_make)
   end
+
   def search_params
     params.require(:q).permit(:sorts)
   end

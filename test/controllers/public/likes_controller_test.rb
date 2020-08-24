@@ -10,5 +10,4 @@ class Public::LikesControllerTest < ActionDispatch::IntegrationTest
     get public_likes_destroy_url
     assert_response :success
   end
-
 end
