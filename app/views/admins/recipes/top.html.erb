@@ -4,16 +4,16 @@
 <h1>今シーズンの最人気レシピ</h1>
 <h3>ユーザー情報</h3>
 
-<% @recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
-  第<%= rank %>位
-  <%= attachment_image_tag recipe_rank, :image, size:'150x100' %>
-  <%= link_to recipe_rank.name, admins_recipe_path(recipe_rank) %>
-	投稿者：<%= recipe_rank.user.name %>
-	<%= attachment_image_tag recipe_rank.user, :image, size:'150x100' %>
-	<%= recipe_rank.user.comment %>
-	<%= recipe_rank.user.phone_number %>
-	<%= recipe_rank.user.email %>
-	<%= recipe_rank.user.postal_code %>
-	<%= recipe_rank.user.address %>
-    <%= render 'public/likes/admin_like', recipe: recipe_rank %>
-<% end %>
+
+  <%= attachment_image_tag @recipe_ranks, :image, size:'150x100' %>
+  <%= link_to @recipe_ranks.name, admins_recipe_path(@recipe_ranks) %>
+	投稿者：<%= @recipe_ranks.user.name %>
+	<%= attachment_image_tag @recipe_ranks.user, :image, size:'150x100' %>
+	<%= @recipe_ranks.user.comment %>
+	<%= @recipe_ranks.user.phone_number %>
+	<%= @recipe_ranks.user.email %>
+	<%= @recipe_ranks.user.postal_code %>
+	<%= @recipe_ranks.user.address %>
+    <%= render 'public/likes/admin_like', recipe: @recipe_ranks %>
+
+

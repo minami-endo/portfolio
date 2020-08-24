@@ -10,28 +10,29 @@
   <% end %>
 <% end %>
 
-<!--二重構造のeach-->
+<!--二重構造-->
 <!--1~3月＝１、4~6月＝２、、という３ヶ月ごとの配列を回す-->
 <% @monthly_ranking.each.with_index(1) do |monthly_ranking, c| %>
-  <% if c == 1 %>
-    <h3>1月~3月</h3><br>
-  <% end %>
-  <% if c == 2 %>
-    <h3>4月~6月</h3><br>
-  <% end %>
-  <% if c == 3 %>
-    <h3>7月~9月</h3><br>
-  <% end %>
-  <% if c == 4 %>
-    <h3>10月~12月</h3><br>
-  <% end %>
+  <%# if c == 1 %>
+    <!-- <h3>1月~3月</h3><br> -->
+  <%# end %>
+  <%# if c == 2 %>
+    <!-- <h3>4月~6月</h3><br> -->
+  <%# end %>
+  <%# if c == 3 %>
+    <!-- <h3>7月~9月</h3><br> -->
+  <%# end %>
+  <%# if c == 4 %>
+    <!-- <h3>10月~12月</h3><br> -->
+  <%# end %>
   <!--1~3月＝１の中に入っているレシピの配列を回す。また上に戻って次は4~6月＝２が降りてくる-->
-  <% monthly_ranking.each.with_index(1) do |rank, i| %>
-	  第<%= i %>位
-	  <%= attachment_image_tag rank, :image, size:'150x100' %>
-	  <%= link_to rank.name, public_recipe_path(rank) %>
-	  <%= render 'public/likes/admin_like', recipe: rank %>
-  <% end %>
+  <%# monthly_ranking.each.with_index(1) do |rank, i| %>
+  <%= "#{Recipe.period[:start_month].month}月~#{Recipe.period[:end_month].month}月" %>
+	  第<%= c %>位
+	  <%= attachment_image_tag monthly_ranking, :image, size:'150x100' %>
+	  <%= link_to monthly_ranking.name, public_recipe_path(monthly_ranking) %>
+	  <%= render 'public/likes/admin_like', recipe: monthly_ranking %>
+  <%# end %>
 <% end %>
 
 

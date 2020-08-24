@@ -31,7 +31,7 @@ class Admins::RecipesController < ApplicationController
   end
 
   def top
-    @recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').limit(1).pluck(:recipe_id))
+    @recipe_ranks = Recipe.monthly_top
   end
 
   def search_params

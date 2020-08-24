@@ -1,3 +1,14 @@
 // Place all the styles related to the public/Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.company_name {
+	text-align: center;
+}
+
+.main_container {
+	background-image: url("<%= asset_path('vera-cho-10SLUJj6G6w-unsplash.jpg') %>");
+    height: 800px;
+    background-size: cover;
+}
