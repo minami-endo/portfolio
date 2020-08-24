@@ -9,25 +9,33 @@ class Admins::RecipesController < ApplicationController
         @today_recipe += 1
       end
     end
-
-    Range.new(Time.zone.now, Time.zone.now.since(3.month))
-    @recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
+    @monthly_ranking = Recipe.monthly_ranking
   end
 
   def index
-    @recipes = Recipe.all
+    if params[:q].present?
+      @search = Recipe.ransack(search_params)
+      @recipes = @search.result
+    else
+      params[:q] = { sorts: 'id desc' }
+      @search = Recipe.ransack()
+      @recipes = Recipe.all
+    end
+
+    @text_search = Recipe.ransack(params[:q])
+    @text_search_recipes = @text_search.result
   end
 
   def show
     @recipe = Recipe.find(params[:id])
   end
 
-  def ranking
-    @recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
-  end
-
   def top
     @recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').limit(1).pluck(:recipe_id))
+  end
+
+  def search_params
+    params.require(:q).permit(:sorts)
   end
 
 end

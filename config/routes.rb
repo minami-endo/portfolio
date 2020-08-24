@@ -31,7 +31,6 @@ Rails.application.routes.draw do
 	  }
 
     get 'recipes/home', to: 'recipes#home', as: 'recipe_home'
-    get 'recipes/ranking', to: 'recipes#ranking', as: 'recipe_ranking'
     get 'recipes/top', to: 'recipes#top', as: 'recipe_top'
   	resources :recipes, only: [:index, :show]
 

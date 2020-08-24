@@ -4,13 +4,13 @@
 
 <h1>レシピランキング</h1>
 
-<!--↓消す？-->
-<% @recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
+<!--↓消す？<% @recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
   第<%= rank %>位
   <%= attachment_image_tag recipe_rank, :image, size:'150x100' %>
   <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
   <%= render 'public/likes/like', recipe: recipe_rank %>
 <% end %>
+-->
 
 
 <!--二重構造のeach-->

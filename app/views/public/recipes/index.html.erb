@@ -19,7 +19,10 @@
 	<%= recipe.ingredient %>
 	<%= recipe.time %>分
 	<%= recipe.how_to_make %>
-
+	<p>投稿者</p>
+	<%= attachment_image_tag recipe.user, :image, size:'50x50' %>
+    <%= recipe.user.name %>
+    <%= recipe.user.email %>
 	<%= render 'public/likes/like', recipe: recipe %>
 
 <% end %>

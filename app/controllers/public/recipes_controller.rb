@@ -4,7 +4,7 @@ class Public::RecipesController < ApplicationController
   def ranking
     @monthly_ranking = Recipe.monthly_ranking
     #いらない↓つきに囚われないランキングを表示させないなら、いらない
-    @recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
+    #@recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
   end
 
   def index
