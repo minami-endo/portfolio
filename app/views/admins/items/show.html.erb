@@ -2,11 +2,8 @@
 <p>Find me in app/views/admins/items/show.html.erb</p>
 
 
-<%= attachment_image_tag @item, :image, size:'150x100' %>
-<%= @item.name %>
-<%= @item.caption %>
-<%= @item.price %>
-
 <%= link_to "編集する", edit_admins_item_path(@item) %>
 <%= link_to "削除する", admins_item_path(@item), method: :delete, data: {confirm: "この商品を削除しますか？"} %>
+
+<%= render 'public/items/show_item', item: @item, recipe_ranks: @recipe_ranks, not_likes_recipes: @not_likes_recipes %>
 

@@ -9,17 +9,17 @@ class Admins::RecipesController < ApplicationController
         @today_recipe += 1
       end
     end
-    @monthly_ranking = Recipe.monthly_ranking
+    @monthly_ranking = Recipe.monthly_ranking.page(params[:page])
   end
 
   def index
     if params[:q].present?
       @search = Recipe.ransack(search_params)
-      @recipes = @search.result
+      @recipes = @search.result.page(params[:page])
     else
       params[:q] = { sorts: 'id desc' }
       @search = Recipe.ransack
-      @recipes = Recipe.all
+      @recipes = Recipe.page(params[:page])
     end
 
     @text_search = Recipe.ransack(params[:q])

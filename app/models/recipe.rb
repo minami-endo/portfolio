@@ -48,6 +48,6 @@ class Recipe < ApplicationRecord
         end_month = period[1]
       end
     end
-    {start_month: start_month, end_month: end_month}
+    { start_month: start_month, end_month: end_month }
    end
 end

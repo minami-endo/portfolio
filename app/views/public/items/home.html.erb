@@ -13,6 +13,7 @@
       <%= attachment_image_tag item, :image, size:'150x100' %>
     <% end %>
 <% end %>
+<%= paginate @items %>
 
 <% if public_user_signed_in? %>
   <p>月間レシピランキング一位の方には豪華商品をプレゼントします</p>

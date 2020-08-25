@@ -1,13 +1,8 @@
 <h1>Admins::Recipes#show</h1>
 <p>Find me in app/views/admins/recipes/show.html.erb</p>
 
-<%= attachment_image_tag @recipe, :image, size:'150x100' %>
-	<%= @recipe.name %>
-	<%= @recipe.ingredient %>
-	<%= @recipe.time %>分
-	<%= @recipe.how_to_make %>
-    <%= @recipe.difficulty_level_i18n %>
-    <%= render 'public/likes/admin_like', recipe: @recipe %>
+<%= render 'public/recipes/show_recipe', recipe: @recipe %>
+<%= render 'public/likes/admin_like', recipe: @recipe %>
 
 <h3>投稿者情報</h3>
     <%= attachment_image_tag @recipe.user, :image, size:'150x100' %>

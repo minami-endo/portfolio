@@ -6,10 +6,11 @@
 <% @items.each do |item| %>
     <%= attachment_image_tag item, :image, size:'150x100' %>
 	<%= item.name %>
-
+    <%= item.caption %>
+	<%= item.price %>
 	<%= form_for(item, url: public_item_path(item), method: :get) do |f| %>
 	    <%= f.hidden_field :item_id, value: item.id %>
 	    <%= f.submit "この商品を見る" %>
     <% end %>
 <% end %>
-
+<%= paginate @items %>

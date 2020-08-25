@@ -2,7 +2,7 @@ class Admins::ItemsController < ApplicationController
   before_action :authenticate_admins_admin!
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).reverse_order
   end
 
   def new
@@ -17,6 +17,11 @@ class Admins::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @recipes = Recipe.where(item_id: @item.id)
+    recipe_ids = @item.recipes.pluck(:id)
+    likes_recipe_ids = Like.where(recipe_id: recipe_ids).group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id)
+    @recipe_ranks = Recipe.find(likes_recipe_ids)
+    @not_likes_recipes = @recipes.where.not(id: likes_recipe_ids)
   end
 
   def edit

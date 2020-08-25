@@ -2,19 +2,17 @@ class Public::RecipesController < ApplicationController
   before_action :authenticate_public_user!, except: [:index, :show, :ranking]
 
   def ranking
-    @monthly_ranking = Recipe.monthly_ranking
-    # いらない↓つきに囚われないランキングを表示させないなら、いらない
-    # @recipe_ranks = Recipe.find(Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
+    @monthly_ranking = Recipe.monthly_ranking.page(params[:page])
   end
 
   def index
     if params[:q].present?
       @search = Recipe.ransack(search_params)
-      @recipes = @search.result
+      @recipes = @search.result.page(params[:page])
     else
       params[:q] = { sorts: 'id desc' }
       @search = Recipe.ransack
-      @recipes = Recipe.all
+      @recipes = Recipe.page(params[:page])
     end
 
     @text_search = Recipe.ransack(params[:q])

@@ -2,39 +2,14 @@
 <p>Find me in app/views/public/items/show.html.erb</p>
 
 
-<%= attachment_image_tag @item, :image, size:'150x100' %>
-<%= @item.name %>
-<%= @item.caption %>
-<%= @item.price %>
-
 <% if public_user_signed_in? %>
-	<%= form_for(@recipe, url: new_public_recipe_path, method: :get) do |f| %>
-	    <%= f.hidden_field :item_id, value: @item.id %>
-	    <%= f.submit "この商品を使ったレシピを投稿する" %>
-	<% end %>
-<% end %>
-
-
-
-<h1>アレンジレシピランキング</h1>
-<% @recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
-  第<%= rank %>位
-  <%= attachment_image_tag recipe_rank, :image, size:'150x100' %>
-  <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
-  <% if public_user_signed_in? %>
-    <%= render 'public/likes/like', recipe: recipe_rank %>
-  <% else %>
-    いいね数<%= recipe_rank.likes_count %>
+  <%= form_for(@recipe, url: new_public_recipe_path, method: :get) do |f| %>
+      <%= f.hidden_field :item_id, value: @item.id %>
+      <%= f.submit "この商品を使ったレシピを投稿する" %>
   <% end %>
 <% end %>
-<% @not_likes_recipes.each do |recipe_rank| %>
-  第<%= (@recipe_ranks.count + 1).to_s %>位
-  <%= attachment_image_tag recipe_rank, :image, size:'150x100' %>
-  <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
-  <% if public_user_signed_in? %>
-    <%= render 'public/likes/like', recipe: recipe_rank %>
-  <% else %>
-    いいね数<%= recipe_rank.likes_count %>
-  <% end %>
-<% end %>
+
+
+<%= render 'public/items/show_item', item: @item, recipe_ranks: @recipe_ranks, not_likes_recipes: @not_likes_recipes %>
+
 

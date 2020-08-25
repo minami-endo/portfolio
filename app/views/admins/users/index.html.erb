@@ -15,3 +15,4 @@
     <%= user.is_deleted_i18n %>
     <%= link_to "このユーザー情報を見る", admins_user_path(user) %>
 <% end %>
+<%= paginate @users %>

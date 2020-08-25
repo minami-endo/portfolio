@@ -10,3 +10,15 @@
     <%= @user.postal_code %>
     <%= @user.address %>
     <%= @user.is_deleted_i18n %>
+
+<p>このユーザーが投稿したレシピ</p>
+<% @recipes.each do |recipe| %>
+    <%= attachment_image_tag recipe, :image, size:'150x100' %>
+	<%= link_to recipe.name, admins_recipe_path(recipe) %>
+	<%= recipe.ingredient %>
+	<%= recipe.time %>分
+	<%= recipe.how_to_make %>
+    <%= recipe.difficulty_level_i18n %>
+	<%= render 'public/likes/admin_like', recipe: recipe %>
+<% end %>
+<%= paginate @recipes %>
