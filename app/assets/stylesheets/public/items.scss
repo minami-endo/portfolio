@@ -8,7 +8,24 @@
 }
 
 .main_container {
-	background-image: url("<%= asset_path('vera-cho-10SLUJj6G6w-unsplash.jpg') %>");
-    height: 800px;
+	background-image: image-url('vera-cho-10SLUJj6G6w-unsplash.jpg');
+	background-color: #666666;
+    height: 400px;
     background-size: cover;
+    width: 100%;
+}
+
+.flex {
+	background-color: #00c7ce;
+    height: 50vh;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex > .home_items {
+  background-color: #fff;
+  margin: 100px;
 }

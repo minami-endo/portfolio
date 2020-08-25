@@ -16,27 +16,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-.body {
+.main {
 	padding-top: 70px;
 }
 
 logo {
 	font-size: 100px;
+	line-height: 70px;
 }
 
 .nav {
     float: right;
-    list-style: none
+    list-style: none;
 }
 
 .nav li {
 	float: left;
 	padding-right: 30px;
-	line-height: 70px;
 	color: black;
+	line-height: 70px;
 }
 
-#container {
-	height: 500px;
-}
+
