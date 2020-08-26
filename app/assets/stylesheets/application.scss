@@ -43,4 +43,29 @@ logo {
 	line-height: 70px;
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+footer {
+    width: 80%;
+    margin: 0 auto;
+	height: 70px;
+	background-color: #FFFFFF;
+}
+
+.rights {
+	text-align: center;
+	line-height: 70px;
+	color: #777777;
+	font-size: 7px;
+}
+
+
+
+
+
+
 

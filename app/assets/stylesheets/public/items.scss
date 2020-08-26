@@ -3,29 +3,79 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.company_name {
-	text-align: center;
-}
 
-.main_container {
-	background-image: image-url('vera-cho-10SLUJj6G6w-unsplash.jpg');
-	background-color: #666666;
+
+.image-box {
     height: 400px;
     background-size: cover;
     width: 100%;
 }
 
+.company-name {
+	text-align: center;
+	line-height: 400px;
+}
+
 .flex {
-	background-color: #00c7ce;
-    height: 50vh;
-    padding: 10px;
+	background-color: #ECECEC;
+	background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+	-webkit-background-size: 7px 7px;
+    height: 400px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    align-content: space-around;
 }
 
-.flex > .home_items {
-  background-color: #fff;
-  margin: 100px;
+.ranking {
+	float: right;
 }
+
+.company-box {
+	width: 100%;
+	background-color: #D9E5FF;
+}
+
+.company-info {
+	width: 70%;
+	margin: 0 auto;
+	background-color: #8EB8FF;
+}
+
+.company-headline, .factory-headline {
+	text-align: center;
+	padding: 40px 0;
+}
+
+.info-box {
+	margin: 50px 100px;
+}
+
+.logo, .map {
+    float: left;
+	padding-bottom: 30px;
+	margin-left: 100px;
+}
+
+.info-text {
+    float: right;
+	padding-bottom: 30px;
+	margin-right: 100px;
+}
+
+.info-text p {
+	padding-bottom: 10px;
+}
+
+.factory-info {
+	width: 70%;
+	margin: 0 auto;
+	background-color: #F3FFD8;
+}
+
+
+
+
+
+

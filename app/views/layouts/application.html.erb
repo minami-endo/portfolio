@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="./stylesheets/skippr.css" rel="stylesheet" media="all" type="text/css" />
+    <script src="./javascripts/jquery-1.11.3.min.js" type="text/javascript"></script>
   </head>
 
   <body>
     <header class="navbar navbar-fixed-top" style="background-color: #FFFFFF; height: 70px;">
       <div class="container">
-
         <% if admins_admin_signed_in? %>
           <%= link_to "LOGØ", admins_recipe_home_path, id: "logo", :style=>"font-size:30px;" %>
          　 <ul class="nav navbar-nav navbar-right">
@@ -50,4 +51,8 @@
       <%= yield %>
     </div>
   </body>
+
+  <footer>
+    <div class="rights"><span>&copy;</span>2020 sunny milk株式会社 All Rights Reversed</div>
+  </footer>
 </html>
