@@ -3,6 +3,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = current_public_user
     @recipes = Recipe.where(user_id: @user.id)
+    @previous_top_user = Recipe.previous_monthly_top
   end
 
   def edit
