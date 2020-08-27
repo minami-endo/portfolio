@@ -1,7 +1,10 @@
 <h1>Public::Users#show</h1>
 <p>Find me in app/views/public/users/show.html.erb</p>
 
-<%= @previous_top_user.name %>
+<p>
+    前シーズンのランキング一位レシピ投稿者：<%= @previous_top_user.user.name %>
+        <%= @previous_top_user.user.email %>
+    </p>
 
 <%= attachment_image_tag @user, :image, size:'200x200' %>
 <%= @user.name %>
@@ -14,7 +17,9 @@
     <%= @user.email %>
     <%= link_to "プロフィールを編集する", edit_public_user_path(@user) %>
     <%= link_to "退会する", public_user_unsubscribe_path(@user) %>
-        <p>一位のレシピ投稿者にだけここに発送準備の表示</p>
+      <% if @previous_top_user.user.id == current_public_user.id %>
+        おめでとうございます！前シーズンに<%= @previous_top_user.user.name %>さんが投稿した<%= @previous_top_user.name %>というレシピが人気No.1になりました。<%= @previous_top_user.user.address %>宛に景品をお送りいたします！
+      <% end %>
 <% end %>
 
 <h3>投稿したアレンジレシピ</h3>
