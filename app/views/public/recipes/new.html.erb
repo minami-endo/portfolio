@@ -1,20 +1,48 @@
 <h1>Public::Recipes#new</h1>
 <p>Find me in app/views/public/recipes/new.html.erb</p>
 
-<h1>レシピの投稿</h1>
 
-<%= form_for(@recipe, url: public_recipes_path, method: :post) do |f| %>
-    <%= f.attachment_field :image %>
-	<%= f.label :レシピ名 %>
-	  <%= f.text_field :name %>
-	<%= f.label :材料 %>
-	  <%= f.text_field :ingredient %>
-	<%= f.label :調理時間 %>
-	  <%= f.text_field :time %>
-	<%= f.label :作り方 %>
-	  <%= f.text_area :how_to_make %>
-	  <%= f.hidden_field :item_id, value: @item.id %>
-	<%= f.label :難易度 %>
-	  <%= f.select :difficulty_level, options_for_select(Recipe.difficulty_levels_i18n.invert) %>
-	<%= f.submit "作成する" %>
-<% end %>
+<div class="new_recipe_container">
+  <div class="headline">レシピの投稿</div>
+
+  <div class="container">
+  	<%= form_for(@recipe, url: public_recipes_path, method: :post) do |f| %>
+  	  <div class="row">
+	  	  <div class="col-lg-4">
+	        <%= f.attachment_field :image %>
+	      </div>
+	      <div class="col-lg-5">
+	      	<table>
+				<tr>
+					<td class="title"><%= f.label :レシピ名 %></td>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<td class="title"><%= f.label :材料 %></td>
+					<td><%= f.text_field :ingredient %></td>
+				</tr>
+				<tr>
+					<td class="title"><%= f.label :調理時間 %></td>
+					<td><%= f.text_field :time %></td>
+				</tr>
+				<tr>
+					<td class="title"><%= f.label :作り方 %></td>
+					<td><%= f.text_area :how_to_make %></td>
+				</tr>
+				<tr>
+					<td class="title"><%= f.label :難易度 %></td>
+					<td><%= f.select :difficulty_level, options_for_select(Recipe.difficulty_levels_i18n.invert) %></td>
+				</tr>
+			</table>
+			<%= f.hidden_field :item_id, value: @item.id %>
+	      </div>
+	      <div class="col-lg-3"></div>
+	  </div>
+	  <div class="row">
+		<div class="create_btn"><%= f.submit "作成する" %></div>
+	  </div>
+	<% end %>
+  </div>
+</div>
+
+

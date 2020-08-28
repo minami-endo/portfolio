@@ -1,26 +1,55 @@
-<%= attachment_image_tag @item, :image, size:'150x100' %>
-<%= item.name %>
-<%= item.caption %>
-<%= item.price %>
 
-<h1>アレンジレシピランキング</h1>
-<% recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
-  第<%= rank %>位
-  <%= attachment_image_tag recipe_rank, :image, size:'150x100' %>
-  <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
+
+<div class="show_item_container">
+  <div class="item_container flex">
+    <div class="item_image"><%= attachment_image_tag @item, :image, size:'230x160' %></div>
+    <div class="item_content">
+      <div class="item_name"><%= item.name %></div><br>
+      <div class="item_caption"><%= item.caption %></div><br>
+      <div class="item_price"><span class="item_price_font">税抜き</span>￥<%= item.price.to_s(:delimited) %></div>
+    </div>
+  </div>
+</div>
+<div class="recipe_post_btn">
   <% if public_user_signed_in? %>
-    <%= render 'public/likes/like', recipe: recipe_rank %>
-  <% else %>
-    <%= render 'public/likes/admin_like', recipe: recipe_rank %>
+    <%= form_for(@recipe, url: new_public_recipe_path, method: :get) do |f| %>
+        <%= f.hidden_field :item_id, value: @item.id %>
+        <%= f.submit "この商品を使ったレシピを投稿する" %>
+    <% end %>
   <% end %>
-<% end %>
-<% not_likes_recipes.each do |recipe_rank| %>
-  第<%= (@recipe_ranks.count + 1).to_s %>位
-  <%= attachment_image_tag recipe_rank, :image, size:'150x100' %>
-  <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
-  <% if public_user_signed_in? %>
-    <%= render 'public/likes/like', recipe: recipe_rank %>
-  <% else %>
-    <%= render 'public/likes/admin_like', recipe: recipe_rank %>
-  <% end %>
-<% end %>
+</div>
+
+
+<div class="show_recipe_rank">
+  <div class="headline">この商品のアレンジレシピランキング</div>
+  <div class="recipe_content">
+    <% recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
+      <div class="recipe_box">
+        <div class="rank">第<%= rank %>位</div>
+        <%= attachment_image_tag recipe_rank, :image, size:'200x150' %>
+        <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
+        <div class="iine">
+          <% if public_user_signed_in? %>
+            <%= render 'public/likes/like', recipe: recipe_rank %>
+          <% else %>
+            <%= render 'public/likes/admin_like', recipe: recipe_rank %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% not_likes_recipes.each do |recipe_rank| %>
+      <div class="recipe_box">
+        <span class="rank">第<%= (@recipe_ranks.count + 1).to_s %>位</span>
+        <%= attachment_image_tag recipe_rank, :image, size:'200x160' %>
+        <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
+        <div class="iine">
+          <% if public_user_signed_in? %>
+            <%= render 'public/likes/like', recipe: recipe_rank %>
+          <% else %>
+            <%= render 'public/likes/admin_like', recipe: recipe_rank %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

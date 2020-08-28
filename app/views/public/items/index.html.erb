@@ -1,16 +1,23 @@
 <h1>Public::Items#index</h1>
 <p>Find me in app/views/public/items/index.html.erb</p>
 
-<h1>商品</h1>
-
-<% @items.each do |item| %>
-    <%= attachment_image_tag item, :image, size:'150x100' %>
-	<%= item.name %>
-    <%= item.caption %>
-	<%= item.price %>
-	<%= form_for(item, url: public_item_path(item), method: :get) do |f| %>
-	    <%= f.hidden_field :item_id, value: item.id %>
-	    <%= f.submit "この商品を見る" %>
-    <% end %>
-<% end %>
-<%= paginate @items %>
+<div class="main_item_container">
+	<div class="item_headline">商品ラインナップ</div>
+	<div class="item_container">
+		<div class="flex">
+		    <% @items.each do |item| %>
+				<div class="index_item_box">
+				    <%= attachment_image_tag item, :image, size:'230x160' %><br>
+					<div class="item_name"><%= item.name %></div><br>
+				    <div class="item_caption"><%= item.caption %></div><br>
+					<div class="item_price"><span class="item_price_font">税抜き</span>￥<%= item.price.to_s(:delimited) %></div>
+					<%= form_for(item, url: public_item_path(item), method: :get) do |f| %>
+					    <%= f.hidden_field :item_id, value: item.id %>
+					<div class="submit_btn"><%= f.submit "この商品を見る" %></div>
+				    <% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<%= paginate @items %>
+</div>

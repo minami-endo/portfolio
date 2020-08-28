@@ -2,14 +2,4 @@
 <p>Find me in app/views/public/items/show.html.erb</p>
 
 
-<% if public_user_signed_in? %>
-  <%= form_for(@recipe, url: new_public_recipe_path, method: :get) do |f| %>
-      <%= f.hidden_field :item_id, value: @item.id %>
-      <%= f.submit "この商品を使ったレシピを投稿する" %>
-  <% end %>
-<% end %>
-
-
 <%= render 'public/items/show_item', item: @item, recipe_ranks: @recipe_ranks, not_likes_recipes: @not_likes_recipes %>
-
-

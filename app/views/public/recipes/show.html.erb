@@ -4,13 +4,17 @@
 
 <%= render 'public/recipes/show_recipe', recipe: @recipe %>
 
-<% if public_user_signed_in? %>
-  <%= render 'public/likes/like', recipe: @recipe %>
-<% else %>
-  <%= render 'public/likes/admin_like', recipe: recipe_rank %>
-<% end %>
+<div class="show_recipe_iine">
+	<% if public_user_signed_in? %>
+	  <%= render 'public/likes/like', recipe: @recipe %>
+	<% else %>
+	  <%= render 'public/likes/admin_like', recipe: recipe_rank %>
+	<% end %>
+</div>
 
-<% if public_user_signed_in? && @recipe.user_id == current_public_user.id %>
-	<%= link_to "レシピを編集する", edit_public_recipe_path(@recipe) %>
-	<%= link_to "削除する", public_recipe_path(@recipe), method: :delete, data: {confirm: "この商品を削除しますか？"} %>
-<% end %>
+<div class="row">
+  <% if public_user_signed_in? && @recipe.user_id == current_public_user.id %>
+	<div class="col-lg-6 show_recipe_edit"><%= link_to "レシピを編集する", edit_public_recipe_path(@recipe), class:"btn" %></div>
+	<div class="col-lg-6 show_recipe_delete"><%= link_to "削除する", public_recipe_path(@recipe), class:"btn", method: :delete, data: {confirm: "この商品を削除しますか？"} %></div>
+  <% end %>
+</div>

@@ -1,3 +1,89 @@
 // Place all the styles related to the public/Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.user_recipe > .recipe_content {
+    margin: 0 auto;
+    width: 70%;
+}
+
+.user_recipe > .headline {
+	text-align: center;
+	font-size: 20px;
+	padding: 30px 0;
+}
+
+.user_recipe > .recipe_content > .recipe_box {
+    margin-bottom: 30px;
+    background-color: #F8F8FF;
+    padding: 20px;
+    height: 140px;
+}
+
+.post_recipe {
+    float: left;
+	width: 400px;
+}
+
+.recipe_box > .post_recipe > .recipe_image {
+	float: left;
+}
+
+.recipe_box > .post_recipe > .recipe_name {
+	float: left;
+	padding-left: 20px;
+	line-height: 100px;
+}
+
+.recipe_box > .relation_item {
+	float: left;
+	text-align: center;
+	padding: 40px 200px 0 0;
+}
+
+.recipe_box > .relation_item > .recipe_item {
+	padding-top: 5px;
+	font-size: 10px;
+}
+
+.recipe_box > .iine {
+	text-align: right;
+	padding: 80px 200px 5px 0;
+}
+
+.profile {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
+.profile > .image {
+	padding-right: 250px;
+}
+
+.profile_title {
+	padding: 20px;
+}
+
+.user_edit {
+	text-align: center;
+	padding: 20px 0;
+}
+
+.user_delete {
+	text-align: right;
+	padding: 10px 200px 30px 0;
+}
+
+h3 {
+    background-color: #FFD5EC;
+	text-align: center;
+	padding: 30px 0;
+}
+
+
+
+
+
+

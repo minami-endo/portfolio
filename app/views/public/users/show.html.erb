@@ -1,32 +1,70 @@
 <h1>Public::Users#show</h1>
 <p>Find me in app/views/public/users/show.html.erb</p>
 
-<p>
-    前シーズンのランキング一位レシピ投稿者：<%= @previous_top_user.user.name %>
-        <%= @previous_top_user.user.email %>
-    </p>
+<div class="profile_container">
+  <div class="profile">
+    <div class="image">
+      <%= attachment_image_tag @user, :image, size:'200x200' %>
+    </div>
+    <div class="content">
+      <table>
+        <tr>
+          <td class="profile_title">名前</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td class="profile_title">コメント</td>
+          <td><%= @user.comment %></td>
+        </tr>
+        <% if public_user_signed_in? && @user.id == current_public_user.id %>
+          <tr>
+            <td class="profile_title">郵便番号</td>
+            <td><%= @user.postal_code %></td>
+          </tr>
+          <tr>
+            <td class="profile_title">住所</td>
+            <td><%= @user.address %></td>
+          </tr>
+          <tr>
+            <td class="profile_title">電話番号</td>
+            <td><%= @user.phone_number %></td>
+          </tr>
+          <tr>
+            <td class="profile_title">メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+      </table>
+    </div>
+  </div>
+  <div class="user_edit"><%= link_to "プロフィールを編集する", edit_public_user_path(@user) %></div>
+  <div class="user_delete"><%= link_to "退会する", public_user_unsubscribe_path(@user) %></div>
+        <% if @previous_top_user.user.id == current_public_user.id %>
+          <h3>
+            おめでとうございます！前シーズンに<%= @previous_top_user.user.name %>さんが投稿した<br>
+            <%= @previous_top_user.name %>というレシピが人気No.1になりました。<br>
+            <%= @previous_top_user.user.address %>宛に景品をお送りいたします！
+          </h3>
+        <% end %>
+       <% end %>
+</div>
 
-<%= attachment_image_tag @user, :image, size:'200x200' %>
-<%= @user.name %>
-<%= @user.comment %>
-
-<% if public_user_signed_in? && @user.id == current_public_user.id %>
-    <%= @user.address %>
-    <%= @user.postal_code %>
-    <%= @user.phone_number %>
-    <%= @user.email %>
-    <%= link_to "プロフィールを編集する", edit_public_user_path(@user) %>
-    <%= link_to "退会する", public_user_unsubscribe_path(@user) %>
-      <% if @previous_top_user.user.id == current_public_user.id %>
-        おめでとうございます！前シーズンに<%= @previous_top_user.user.name %>さんが投稿した<%= @previous_top_user.name %>というレシピが人気No.1になりました。<%= @previous_top_user.user.address %>宛に景品をお送りいたします！
-      <% end %>
-<% end %>
-
-<h3>投稿したアレンジレシピ</h3>
-<% @recipes.each do |recipe| %>
-  <%= attachment_image_tag recipe, :image, size:'150x100' %>
-	<%= link_to recipe.name, public_recipe_path(recipe) %>
-	<%= recipe.ingredient %>
-	<%= recipe.time %>分
-	<%= recipe.how_to_make %>
-<% end %>
+<div class="user_recipe">
+  <div class="headline">投稿したアレンジレシピ</div>
+  <div class="recipe_content">
+    <% @recipes.each do |recipe| %>
+      <div class="recipe_box clearfix">
+        <div class="post_recipe">
+          <div class="recipe_image"><%= attachment_image_tag recipe, :image, size:'150x100' %></div>
+          <div class="recipe_name"><%= link_to recipe.name, public_recipe_path(recipe) %></div>
+        </div>
+        <div class="relation_item">
+          <div class="recipe_image"><%= attachment_image_tag recipe.item, :image, size:'50x30' %></div>
+          <div class="recipe_item">この商品をアレンジ：<%= recipe.item.name %></div>
+        </div>
+        <div class="iine">
+          <%= render 'public/likes/like', recipe: recipe %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

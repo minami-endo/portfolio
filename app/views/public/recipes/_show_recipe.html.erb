@@ -1,6 +1,35 @@
-<%= attachment_image_tag @recipe, :image, size:'150x100' %>
-<%= @recipe.name %>
-<%= @recipe.ingredient %>
-<%= @recipe.time %>分
-<%= @recipe.how_to_make %>
-<%= @recipe.difficulty_level_i18n %>
+
+<div class="show_recipe_container">
+  <div class="headline"><%= @recipe.name %></div>
+    <div class="container">
+  	  <div class="row">
+	  	  <div class="col-lg-4">
+	        <%= attachment_image_tag @recipe, :image, size:'250x170' %>
+	      </div>
+	      <div class="col-lg-5">
+	      	<table>
+				<tr>
+					<td class="recipe_title">材料</td>
+					<td><%= @recipe.ingredient %></td>
+				</tr>
+				<tr>
+					<td class="recipe_title">調理時間</td>
+					<td><%= @recipe.time %>分</td>
+				</tr>
+				<tr>
+					<td class="recipe_title">作り方</td>
+					<td><%= @recipe.how_to_make %></td>
+				</tr>
+				<tr>
+					<td class="recipe_title">難易度</td>
+					<td><%= @recipe.difficulty_level_i18n %></td>
+				</tr>
+			</table>
+	      </div>
+	      <div class="col-lg-3"></div>
+	　</div>
+	</div>
+  </div>
+</div>
+
+

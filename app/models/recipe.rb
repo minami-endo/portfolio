@@ -22,8 +22,8 @@ class Recipe < ApplicationRecord
   def self.monthly_ranking
     beginning_of_month = period[:start_month]
     end_of_month = period[:end_month]
-    where(created_at: beginning_of_month..end_of_month).
-    where(id: Like.group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id))
+    joins(:likes).merge(Like.group(:recipe_id).order('count(recipe_id) desc'))
+                .where(created_at: beginning_of_month..end_of_month)
   end
 
   def self.monthly_top
