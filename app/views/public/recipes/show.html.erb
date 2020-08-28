@@ -3,10 +3,11 @@
 
 
 <%= render 'public/recipes/show_recipe', recipe: @recipe %>
+
 <% if public_user_signed_in? %>
   <%= render 'public/likes/like', recipe: @recipe %>
 <% else %>
-  いいね数<%= @recipe.likes_count %>
+  <%= render 'public/likes/admin_like', recipe: recipe_rank %>
 <% end %>
 
 <% if public_user_signed_in? && @recipe.user_id == current_public_user.id %>

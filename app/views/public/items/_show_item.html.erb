@@ -11,7 +11,7 @@
   <% if public_user_signed_in? %>
     <%= render 'public/likes/like', recipe: recipe_rank %>
   <% else %>
-    いいね数<%= recipe_rank.likes_count %>
+    <%= render 'public/likes/admin_like', recipe: recipe_rank %>
   <% end %>
 <% end %>
 <% not_likes_recipes.each do |recipe_rank| %>
@@ -21,6 +21,6 @@
   <% if public_user_signed_in? %>
     <%= render 'public/likes/like', recipe: recipe_rank %>
   <% else %>
-    いいね数<%= recipe_rank.likes_count %>
+    <%= render 'public/likes/admin_like', recipe: recipe_rank %>
   <% end %>
 <% end %>
