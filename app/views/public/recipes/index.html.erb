@@ -22,7 +22,7 @@
 	<%= recipe.difficulty_level_i18n %>
 	<p>投稿者</p>
 	<%= attachment_image_tag recipe.user, :image, size:'50x50' %>
-    <%= recipe.user.name %>
+    <%= link_to recipe.user.name, public_user_path(recipe.user_id) %>
     <%= recipe.user.email %>
 	<%= render 'public/likes/like', recipe: recipe %>
 

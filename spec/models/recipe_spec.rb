@@ -12,7 +12,6 @@ RSpec.describe Recipe, type: :model do
       @recipe.user_id = "2"
       @recipe.save
     end
-
     it "全て入力してあるので保存される" do
       expect(@recipe).to be_valid
     end
@@ -29,10 +28,9 @@ RSpec.describe Recipe, type: :model do
       @recipe.user_id = "2"
       @recipe.save
     end
-
     it "nameが入力されていないので保存されない" do
       expect(@recipe).to be_invalid
-      expect(@recipe.errors[:name]).to include("can't be blank")
+      expect(@recipe.errors[:name]).to include("入力")
     end
   end
 end

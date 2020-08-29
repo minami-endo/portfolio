@@ -5,7 +5,7 @@ class Recipe < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
 
-  validates :name, presence: true, length: { minimum: 1, maximum: 30 }
+  validates :name, presence: true, length: { minimum: 1, maximum: 20 }
   validates :ingredient, presence: true
   validates :time, presence: true
   validates :how_to_make, presence: true, length: { minimum: 1, maximum: 200 }
