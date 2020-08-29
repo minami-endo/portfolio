@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :recipes
   has_many :likes, dependent: :destroy
-  has_many :like_stories, through: :likes, source: :story
+  has_many :like_recipes, through: :likes, source: :recipe
   attachment :image
 
   validates :name, presence: true, length: { minimum: 1, maximum: 30 }
