@@ -8,8 +8,8 @@ RSpec.describe Recipe, type: :model do
       @recipe.ingredient = "今日も晴れです。"
       @recipe.time = "20"
       @recipe.how_to_make = "混ぜる"
-      @recipe.item_id = "2"
-      @recipe.user_id = "2"
+      @recipe.item = 2
+      @recipe.user = "2"
       @recipe.save
     end
     it "全て入力してあるので保存される" do
@@ -24,8 +24,8 @@ RSpec.describe Recipe, type: :model do
       @recipe.ingredient = "今日も晴れです。"
       @recipe.time = "20"
       @recipe.how_to_make = "混ぜる"
-      @recipe.item_id = "2"
-      @recipe.user_id = "2"
+      @recipe.item = "2"
+      @recipe.user = "2"
       @recipe.save
     end
     it "nameが入力されていないので保存されない" do

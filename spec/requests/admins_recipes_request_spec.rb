@@ -1,20 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe "Items", type: :request do
+RSpec.describe "Recipes", type: :request do
 
   let(:admin) { FactoryBot.create(:admin) }
 
-  describe '新規投稿ページ' do
-    context "新規投稿ページが正しく表示される" do
+  describe 'レシピ一覧ページ' do
+    context "レシピ一覧ページが正しく表示される" do
       before do
         sign_in admin
-        get new_admins_item_path
+        get admins_recipes_path
       end
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
       it 'タイトルが正しく表示されていること' do
-        expect(response.body).to include("投稿")
+        expect(response.body).to include("レシピ")
       end
     end
   end

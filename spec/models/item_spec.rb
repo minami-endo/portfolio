@@ -1,4 +1,5 @@
 require 'rails_helper'
+require "refile/file_double"
 
 RSpec.describe Item, type: :model do
   context "データが正しく保存される" do
@@ -6,7 +7,7 @@ RSpec.describe Item, type: :model do
       @item = Item.new
       @item.name = "Hello WebCamp"
       @item.caption = "今日も晴れです。"
-      @item.image_id = "image.jpg"
+      @item.image = Refile::FileDouble.new("dummy", "logo.png", content_type: "image/png")
       @item.price = "3000"
       @item.save
     end
@@ -19,7 +20,7 @@ RSpec.describe Item, type: :model do
       @item = Item.new
       @item.name = ""
       @item.caption = "今日も晴れです。"
-      @item.image_id = "image.jpg"
+      @item.image = Refile::FileDouble.new("dummy", "logo.png", content_type: "image/png")
       @item.price = "3000"
       @item.save
     end
