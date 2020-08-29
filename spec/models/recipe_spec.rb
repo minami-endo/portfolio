@@ -8,7 +8,7 @@ RSpec.describe Recipe, type: :model do
       @recipe.ingredient = "今日も晴れです。"
       @recipe.time = "20"
       @recipe.how_to_make = "混ぜる"
-      @recipe.item = 2
+      @recipe.item_id = 2
       @recipe.user = "2"
       @recipe.save
     end
