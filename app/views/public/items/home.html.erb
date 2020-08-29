@@ -30,7 +30,7 @@
     <div class="company-info clearfix">
       <h2 class="company-headline">会社概要</h2>
       <div class="info-box">
-        <img class="logo" src="images/PP_gyunyubin_TP_V.jpg" alt="牛乳瓶の写真" title="牛乳瓶">
+        <img class="logo" src="assets/PP_gyunyubin_TP_V.jpg" alt="牛乳瓶の写真" title="牛乳瓶" width="300" height="200">
         <h4 class="info-text">
           <p>本社：東京</p>
           <p>工場：栃木</p>
@@ -41,12 +41,23 @@
     <div class="factory-info clearfix">
       <h2 class="factory-headline">工場見学</h2>
       <div class="info-box">
-        <p class="map">map</p>
+        <p id="map" class="map">
+          
+        </p>
         <h4 class="info-text">
-          <p>住所：小笠原半島</p>
+          <p>住所：栃木</p>
           <p>開放日：土日祝日</p>
         </h4>
       </div>
     </div>
   </div>
 </div>
+<script>
+function initMap(){
+  let map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 8
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG3Vk8fNRQpxEf5v8nU32kBN380qnBSxY&callback=initMap" async defer></script>
