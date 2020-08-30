@@ -38,7 +38,7 @@
   </div>
   <div class="user_edit"><%= link_to "プロフィールを編集する", edit_public_user_path(@user) %></div>
   <div class="user_delete"><%= link_to "退会する", public_user_unsubscribe_path(@user) %></div>
-        <% if @previous_top_user.user.id == current_public_user.id %>
+        <% if @previous_top_user.present? && @previous_top_user.user.id == current_public_user.id %>
           <h3>
             おめでとうございます！前シーズンに<%= @previous_top_user.user.name %>さんが投稿した<br>
             <%= @previous_top_user.name %>というレシピが人気No.1になりました。<br>

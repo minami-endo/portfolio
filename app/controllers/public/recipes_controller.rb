@@ -14,9 +14,6 @@ class Public::RecipesController < ApplicationController
       @search = Recipe.ransack
       @recipes = Recipe.page(params[:page])
     end
-
-    @text_search = Recipe.ransack(params[:q])
-    @text_search_recipes = @text_search.result
   end
 
   def new
@@ -59,6 +56,6 @@ class Public::RecipesController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:sorts)
+    params.require(:q).permit(:sorts, :name_cont)
   end
 end
