@@ -1,0 +1,70 @@
+<h1>Public::Users#show</h1>
+<p>Find me in app/views/public/users/show.html.erb</p>
+
+<div class="profile_container">
+  <div class="profile">
+    <div class="image">
+      <%= attachment_image_tag @user, :image, size:'200x200' %>
+    </div>
+    <div class="content">
+      <table>
+        <tr>
+          <td class="profile_title">名前</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td class="profile_title">コメント</td>
+          <td><%= @user.comment %></td>
+        </tr>
+        <% if public_user_signed_in? && @user.id == current_public_user.id %>
+          <tr>
+            <td class="profile_title">郵便番号</td>
+            <td><%= @user.postal_code %></td>
+          </tr>
+          <tr>
+            <td class="profile_title">住所</td>
+            <td><%= @user.address %></td>
+          </tr>
+          <tr>
+            <td class="profile_title">電話番号</td>
+            <td><%= @user.phone_number %></td>
+          </tr>
+          <tr>
+            <td class="profile_title">メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+      </table>
+    </div>
+  </div>
+  <div class="user_edit"><%= link_to "プロフィールを編集する", edit_public_user_path(@user) %></div>
+  <div class="user_delete"><%= link_to "退会する", public_user_unsubscribe_path(@user) %></div>
+        <% if @previous_top_user.present? && @previous_top_user.user.id == current_public_user.id %>
+          <h3>
+            おめでとうございます！前シーズンに<%= @previous_top_user.user.name %>さんが投稿した<br>
+            <%= @previous_top_user.name %>というレシピが人気No.1になりました。<br>
+            <%= @previous_top_user.user.address %>宛に景品をお送りいたします！
+          </h3>
+        <% end %>
+       <% end %>
+</div>
+
+<div class="user_recipe">
+  <div class="headline">投稿したアレンジレシピ</div>
+  <div class="recipe_content">
+    <% @recipes.each do |recipe| %>
+      <div class="recipe_box clearfix">
+        <div class="post_recipe">
+          <div class="recipe_image"><%= attachment_image_tag recipe, :image, size:'150x100' %></div>
+          <div class="recipe_name"><%= link_to recipe.name, public_recipe_path(recipe) %></div>
+        </div>
+        <div class="relation_item">
+          <div class="recipe_image"><%= attachment_image_tag recipe.item, :image, size:'50x30' %></div>
+          <div class="recipe_item">この商品をアレンジ：<%= recipe.item.name %></div>
+        </div>
+        <div class="iine">
+          <%= render 'public/likes/like', recipe: recipe %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<h1>Admins::Recipes#home</h1>
+<p>Find me in app/views/admins/recipes/home.html.erb</p>
+
+
+<h3>本日投稿されたレシピ<%= @today_recipe %>件</h3>
+<% @recipes.each do |recipe| %>
+  <% if(recipe[:created_at].to_s.match(/#{Date.today.to_s}.+/)) %>
+    <%= recipe.name %>
+    <%= attachment_image_tag recipe, :image, size:'150x100' %>
+  <% end %>
+<% end %>
+
+
+<% @monthly_ranking.each.with_index(1) do |monthly_ranking, c| %>
+  <%= "#{Recipe.period[:start_month].month}月~#{Recipe.period[:end_month].month}月" %>
+	  第<%= c %>位
+	  <%= attachment_image_tag monthly_ranking, :image, size:'150x100' %>
+	  <%= link_to monthly_ranking.name, public_recipe_path(monthly_ranking) %>
+	  <%= render 'public/likes/admin_like', recipe: monthly_ranking %>
+<% end %>
+<%= paginate @monthly_ranking %>
+
+
+

@@ -1,0 +1,14 @@
+<h1>Admins::Recipes#show</h1>
+<p>Find me in app/views/admins/recipes/show.html.erb</p>
+
+<%= render 'public/recipes/show_recipe', recipe: @recipe %>
+<%= render 'public/likes/admin_like', recipe: @recipe %>
+
+<h3>投稿者情報</h3>
+    <%= attachment_image_tag @recipe.user, :image, size:'150x100' %>
+    <%= @recipe.user.name %>
+    <%= @recipe.user.comment %>
+    <%= @recipe.user.email %>
+    <%= @recipe.user.phone_number %>
+    <%= @recipe.user.postal_code %>
+    <%= @recipe.user.address %>

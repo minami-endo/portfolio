@@ -1,0 +1,20 @@
+<h1>Admins::Recipes#top</h1>
+<p>Find me in app/views/admins/recipes/top.html.erb</p>
+
+<h1>今シーズンの最人気レシピ</h1>
+<h3>ユーザー情報</h3>
+
+<% if @recipe_ranks.present? %>
+  <%= attachment_image_tag @recipe_ranks, :image, size:'150x100' %>
+  <%= link_to @recipe_ranks.name, admins_recipe_path(@recipe_ranks) %>
+	投稿者：<%= @recipe_ranks.user.name %>
+	<%= attachment_image_tag @recipe_ranks.user, :image, size:'150x100' %>
+	<%= @recipe_ranks.user.comment %>
+	<%= @recipe_ranks.user.phone_number %>
+	<%= @recipe_ranks.user.email %>
+	<%= @recipe_ranks.user.postal_code %>
+	<%= @recipe_ranks.user.address %>
+    <%= render 'public/likes/admin_like', recipe: @recipe_ranks %>
+<% end %>
+
+
