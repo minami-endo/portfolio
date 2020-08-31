@@ -47,7 +47,7 @@
 	margin: 50px 100px;
 }
 
-.logo, .map {
+.logo {
     float: left;
 	padding-bottom: 30px;
 	margin-left: 100px;
@@ -67,6 +67,21 @@
 	width: 70%;
 	margin: 0 auto;
 	background-color: #F3FFD8;
+	padding-bottom: 30px;
+}
+
+#map {
+    float: right;
+	width: 400px;
+    height: 300px;
+}
+
+.map-text {
+    float: left;
+}
+
+.map-text p {
+	padding-bottom: 10px;
 }
 
 .item_container {
@@ -181,3 +196,4 @@
 	text-align: right;
 	padding-right: 200px;
 }
+

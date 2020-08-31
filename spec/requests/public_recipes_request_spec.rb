@@ -35,4 +35,19 @@ RSpec.describe "Recipes", type: :request do
       end
     end
   end
+
+  describe '投稿編集ページ' do
+    context "投稿編集ページが正しく表示される" do
+      before do
+        sign_in user
+        get edit_public_recipe_path(recipe), params: { id: recipe.id }
+      end
+      it 'リクエストは200 OKとなること' do
+        expect(response.status).to eq 200
+      end
+      it 'タイトルが正しく表示されていること' do
+        expect(response.body).to include("編集")
+      end
+    end
+  end
 end
