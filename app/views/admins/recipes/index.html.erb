@@ -5,7 +5,9 @@
 <h1>投稿されたレシピ</h1>
 
 <%= search_form_for @search, url: admins_recipes_path do |f| %>
-    <%= f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc', 'いいね!の多い順': 'likes_count desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
+  <%= f.search_field :name_cont, placeholder: '検索するテキストを入力...' %></dt>
+  <%= f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc', 'いいね!の多い順': 'likes_count desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
+  <%= f.submit ("検索") , class: 'search-btn'%></dd>
 <% end %>
 
 <% @recipes.each do |recipe| %>
@@ -20,3 +22,4 @@
 	<%= render 'public/likes/admin_like', recipe: recipe %>
 <% end %>
 <%= paginate @recipes %>
+
