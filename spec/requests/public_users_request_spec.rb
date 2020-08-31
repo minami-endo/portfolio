@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
 
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) { create(:user) }
 
   describe 'ユーザー登録ページ' do
     context "ユーザー登録ページが正しく表示される" do

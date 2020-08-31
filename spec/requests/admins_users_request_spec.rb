@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
 
-  let(:admin) { FactoryBot.create(:admin) }
-  let(:user) { FactoryBot.create(:user) }
+  let(:admin) { create(:admin) }
+  let(:user) { create(:user) }
 
   describe 'ユーザー一覧ページ' do
     context "ユーザー一覧ページが正しく表示される" do

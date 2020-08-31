@@ -3,8 +3,8 @@ require "refile/file_double"
 
 RSpec.describe "Items", type: :request do
 
-  let(:admin) { FactoryBot.create(:admin) }
-  let(:item) { FactoryBot.create(:item) }
+  let(:admin) { create(:admin) }
+  let(:item) { create(:item) }
 
   describe '商品一覧ページ' do
     context "商品一覧ページが正しく表示される" do

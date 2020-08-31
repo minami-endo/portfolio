@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Items", type: :request do
 
-  let(:user) { FactoryBot.create(:user) }
-  let(:item) { FactoryBot.create(:item) }
+  let(:user) { create(:user) }
+  let(:item) { create(:item) }
 
   describe '商品一覧ページ' do
     context "商品一覧ページが正しく表示される" do

@@ -6,6 +6,5 @@ FactoryBot.define do
     how_to_make { 'あああ' }
     item_id { '0432111' }
     user_id { '0432111' }
-    monthly_top { 'uuu' }
   end
 end
