@@ -58,13 +58,15 @@
           <div class="recipe_name"><%= link_to recipe.name, public_recipe_path(recipe) %></div>
         </div>
         <div class="relation_item">
+          <div class="recipe_item">この商品をアレンジ：<%= link_to recipe.item.name, public_item_path(recipe.item) %></div>
           <div class="recipe_image"><%= attachment_image_tag recipe.item, :image, size:'50x30' %></div>
-          <div class="recipe_item">この商品をアレンジ：<%= recipe.item.name %></div>
         </div>
         <div class="iine">
           <%= render 'public/likes/like', recipe: recipe %>
         </div>
       </div>
     <% end %>
+    <%= paginate @recipes %>
+
   </div>
 </div>

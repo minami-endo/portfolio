@@ -2,7 +2,7 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_public_user!, except: [:show]
   def show
     @user = User.find(params[:id])
-    @recipes = Recipe.where(user_id: @user.id)
+    @recipes = Recipe.where(user_id: @user.id).page(params[:page])
     @previous_top_user = Recipe.previous_monthly_top
   end
 
