@@ -2,12 +2,15 @@
 <p>Find me in app/views/admins/items/index.html.erb</p>
 
 
-<h1>商品</h1>
-
-<% @items.each do |item| %>
-    <%= attachment_image_tag item, :image, size:'150x100' %>
-	<%= link_to item.name, admins_item_path(item) %>
-	<%= item.caption %>
-	<%= item.price %>
-<% end %>
-<%= paginate @items %>
+<div class="headline">商品</div>
+<div class="admins_item_container">
+  <% @items.each do |item| %>
+    <div class="admins_item_box">
+      <%= attachment_image_tag item, :image, size:'150x100' %>
+	  <%= link_to item.name, admins_item_path(item) %>
+      <%= item.caption %>
+	  <%= item.price %>
+	</div>
+  <% end %>
+  <%= paginate @items %>
+</div>

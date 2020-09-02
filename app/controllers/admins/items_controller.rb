@@ -21,7 +21,7 @@ class Admins::ItemsController < ApplicationController
     recipe_ids = @item.recipes.pluck(:id)
     likes_recipe_ids = Like.where(recipe_id: recipe_ids).group(:recipe_id).order('count(recipe_id) desc').pluck(:recipe_id)
     @recipe_ranks = Recipe.find(likes_recipe_ids)
-    @not_likes_recipes = @recipes.where.not(id: likes_recipe_ids)
+    @not_likes_recipes = @recipes.where.not(id: likes_recipe_ids).page(params[:page])
   end
 
   def edit

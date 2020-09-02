@@ -20,15 +20,15 @@
 </div>
 
 
-<div class="show_recipe_rank">
+<div class="show_item_recipe_rank">
   <div class="headline">この商品のアレンジレシピランキング</div>
-  <div class="recipe_content">
+  <div class="show_item_recipe_content">
     <% recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
-      <div class="recipe_box">
+      <div class="show_item_recipe_box">
         <div class="rank">第<%= rank %>位</div>
         <%= attachment_image_tag recipe_rank, :image, size:'200x150' %>
         <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
-        <div class="iine">
+        <div class="show_item_recipe_iine">
           <% if public_user_signed_in? %>
             <%= render 'public/likes/like', recipe: recipe_rank %>
           <% else %>
@@ -38,11 +38,11 @@
       </div>
     <% end %>
     <% not_likes_recipes.each do |recipe_rank| %>
-      <div class="recipe_box">
+      <div class="show_item_recipe_box">
         <span class="rank">第<%= (@recipe_ranks.count + 1).to_s %>位</span>
         <%= attachment_image_tag recipe_rank, :image, size:'200x160' %>
         <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
-        <div class="iine">
+        <div class="show_item_recipe_iine">
           <% if public_user_signed_in? %>
             <%= render 'public/likes/like', recipe: recipe_rank %>
           <% else %>

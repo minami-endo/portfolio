@@ -16,7 +16,10 @@
 
 .user_recipe > .recipe_content > .recipe_box {
     margin-bottom: 30px;
-    background-color: #F8F8FF;
+    background-image: image-url('nicole-wilcox-ExCeuFAH5ak-unsplash.jpg');
+	background-color:rgba(255,255,255,0.8);
+    background-blend-mode:lighten;
+    background-size: contain;
     padding: 20px;
     height: 140px;
 }
@@ -76,13 +79,40 @@
 	padding: 10px 200px 30px 0;
 }
 
-h3 {
-    background-color: #FFD5EC;
+.congratulation {
+    background-color: #FFCC33;
 	text-align: center;
 	padding: 30px 0;
+	font-size: 20px;
+	width: 60%;
+	border-radius: 30px 0 30px 0;
+	margin: 0 auto;
 }
 
+.edit_profile_container {
+	width: 30%;
+	margin: 0 auto;
+}
 
+.edit_profile_container > .profile {
+	float: right;
+}
+
+.unsubscribe_container {
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.unsubscribe_container > .confirm {
+	font-size: 30px;
+	padding: 50px;
+}
+
+.unsubscribe_container > .text {
+	font-size: 20px;
+	padding-bottom: 40px;
+}
 
 
 

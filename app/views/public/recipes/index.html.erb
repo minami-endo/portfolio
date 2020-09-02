@@ -1,30 +1,36 @@
 <h1>Public::Recipes#index</h1>
 <p>Find me in app/views/public/recipes/index.html.erb</p>
 
-<h1>投稿されたレシピ</h1>
 
-<%= search_form_for @search, url: public_recipes_path do |f| %>
-  <%= f.search_field :name_cont, placeholder: '検索するテキストを入力...' %></dt>
-  <%= f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc', 'いいね!の多い順': 'likes_count desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
-  <%= f.submit ("検索") , class: 'search-btn'%></dd>
-<% end %>
+<div class="headline">投稿されたレシピ</div>
+<div class="index_recipe_content">
 
-
-<% @recipes.each do |recipe| %>
-    <%= attachment_image_tag recipe, :image, size:'150x100' %>
-	<%= link_to recipe.name, public_recipe_path(recipe) %>
-	<%= recipe.ingredient %>
-	<%= recipe.time %>分
-	<%= recipe.how_to_make %>
-	<%= recipe.difficulty_level_i18n %>
-	<p>投稿者</p>
-	<%= attachment_image_tag recipe.user, :image, size:'50x50' %>
-    <%= link_to recipe.user.name, public_user_path(recipe.user_id) %>
-    <%= recipe.user.email %>
-	<%= render 'public/likes/like', recipe: recipe %>
-
-<% end %>
-
+	<div class="index_search_box">
+	  <%= search_form_for @search, url: public_recipes_path do |f| %>
+	    <%= f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc', 'いいね!の多い順': 'likes_count desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %><br>
+	    レシピ名：<%= f.search_field :name_cont, placeholder: '検索するテキストを入力...' %></dt>
+	    <%= f.submit ("検索") , class: 'search-btn'%></dd>
+	  <% end %>
+	</div>
+    <% @recipes.each do |recipe| %>
+      <div class="index_recipe_box">
+      	<div class="recipe_info col-lg-6">
+	      <%= attachment_image_tag recipe, :image, size:'150x100' %>
+	      <%= link_to recipe.name, public_recipe_path(recipe) %>
+	      <%= recipe.time %>分
+          難易度：<%= recipe.difficulty_level_i18n %>
+        </div>
+        <div class="relation_user col-lg-6">
+          <p>投稿者</p>
+			<%= attachment_image_tag recipe.user, :image, size:'50x50' %>
+		    <%= link_to recipe.user.name, public_user_path(recipe.user_id) %>
+		</div>
+        <div class="index_recipe_iine">
+          <%= render 'public/likes/like', recipe: recipe %>
+        </div>
+      </div>
+    <% end %>
+</div>
 
 <%= paginate @recipes %>
 

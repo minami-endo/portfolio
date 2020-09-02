@@ -17,7 +17,7 @@ class Public::UsersController < ApplicationController
   end
 
   def unsubscribe
-    @user = User.find(params[:id])
+    @user = current_public_user
   end
 
   def withdraw
