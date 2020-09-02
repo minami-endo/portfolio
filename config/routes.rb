@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'items#home'
+  root to: 'public/items#home'
 
   namespace :public do
     devise_for :users, controllers: {
