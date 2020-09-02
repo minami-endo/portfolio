@@ -1,22 +1,45 @@
 <h1>Public::Users#edit</h1>
 <p>Find me in app/views/public/users/edit.html.erb</p>
 
-
+<div class="headline">プロフィールの編集</div>
+<div class="edit_profile_container clearfix">
 <%= form_for(@user, url: public_user_path(@user), method: :patch) do |f| %>
-    <%= f.attachment_field :image %>
-	<%= f.label :名前 %>
-	  <%= f.text_field :name %>
-	<%= f.label :コメント %>
-	  <%= f.text_field :comment %>
-	  <%= f.label :電話番号 %>
-	  <%= f.text_field :phone_number %>
-	<%= f.label :郵便番号 %>
-	  <%= f.text_field :postal_code %>
-	  <%= f.label :住所 %>
-	  <%= f.text_field :address %>
-	<%= f.label :メールアドレス %>
-	  <%= f.text_field :email %>
-	<%= f.submit "更新する" %>
+  <div class="edit_profile">
+    <div class="image">
+      <%= f.attachment_field :image, size:'200x200' %>
+    </div>
+    <div class="content">
+      <table>
+        <tr>
+          <td class="profile_title"><%= f.label :名前 %></td>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <td class="profile_title"><%= f.label :コメント %></td>
+          <td><%= f.text_field :comment %></td>
+        </tr>
+        <% if public_user_signed_in? && @user.id == current_public_user.id %>
+          <tr>
+            <td class="profile_title"><%= f.label :郵便番号 %></td>
+            <td><%= f.text_field :postal_code %></td>
+          </tr>
+          <tr>
+            <td class="profile_title"><%= f.label :住所 %></td>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <td class="profile_title"><%= f.label :電話番号 %></td>
+            <td><%= f.text_field :phone_number %></td>
+          </tr>
+          <tr>
+            <td class="profile_title"><%= f.label :メールアドレス %></td>
+            <td><%= f.text_field :email %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="submit"><%= f.submit "更新する" %></div>
 <% end %>
-
-<%= link_to "プロフィール画面へ", public_user_path(@user) %>
+<div class="profile"><%= link_to "マイページへ", public_user_path(@user) %></div>
+</div>

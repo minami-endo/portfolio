@@ -2,6 +2,7 @@
 <p>Find me in app/views/public/users/show.html.erb</p>
 
 <div class="profile_container">
+  <div class="headline">マイページ</div>
   <div class="profile">
     <div class="image">
       <%= attachment_image_tag @user, :image, size:'200x200' %>
@@ -39,11 +40,12 @@
   <div class="user_edit"><%= link_to "プロフィールを編集する", edit_public_user_path(@user) %></div>
   <div class="user_delete"><%= link_to "退会する", public_user_unsubscribe_path(@user) %></div>
         <% if @previous_top_user.present? && @previous_top_user.user.id == current_public_user.id %>
-          <h3>
+          <div class="congratulation">
             おめでとうございます！前シーズンに<%= @previous_top_user.user.name %>さんが投稿した<br>
-            <%= @previous_top_user.name %>というレシピが人気No.1になりました。<br>
-            <%= @previous_top_user.user.address %>宛に景品をお送りいたします！
-          </h3>
+            「<%= @previous_top_user.name %>」というレシピが人気No.1になりました。<br>
+            ご住所：<%= @previous_top_user.user.address %>宛に景品をお送りいたします！
+            <i class="fas fa-gifts"></i>
+          </div>
         <% end %>
        <% end %>
 </div>

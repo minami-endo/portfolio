@@ -25,17 +25,23 @@
 
 .ranking {
 	float: right;
+	margin: 10px 60px 0 0;
+	padding: 20px;
+	background-color: #FFFF66;
+	border-radius: 30px 0 30px 0;
+}
+
+.ranking > p {
+	text-align: center;
 }
 
 .company-box {
 	width: 100%;
-	background-color: #D9E5FF;
 }
 
 .company-info {
 	width: 70%;
 	margin: 0 auto;
-	background-color: #8EB8FF;
 }
 
 .company-headline, .factory-headline {
@@ -63,25 +69,27 @@
 	padding-bottom: 10px;
 }
 
-.factory-info {
-	width: 70%;
-	margin: 0 auto;
-	background-color: #F3FFD8;
-	padding-bottom: 30px;
-}
-
 #map {
     float: right;
 	width: 400px;
     height: 300px;
+    padding: 20px;
 }
 
 .map-text {
     float: left;
+    background-color: #FFFFFF;
+    padding: 20px 30px;
 }
 
-.map-text p {
-	padding-bottom: 10px;
+.factory-info {
+	width: 70%;
+	margin: 0 auto;
+	background-image: image-url('jonathan-hanna-Qn_ZS9q62aI-unsplash.jpg');
+	background-size: 100%;
+	padding-bottom: 30px;
+	background-color:rgba(255,255,255,0.8);
+    background-blend-mode:lighten;
 }
 
 .item_container {
@@ -161,39 +169,57 @@
 	text-align: center;
 }
 
-.show_recipe_rank > .recipe_content {
+.show_item_recipe_content {
     margin: 0 auto;
     width: 70%;
 }
 
-.show_recipe_rank > .headline {
-	text-align: center;
-	font-size: 20px;
-	padding: 30px 0;
-}
-
-.recipe_content > .recipe_box {
+.show_item_recipe_box {
     margin-bottom: 30px;
-    background-color: #F8F8FF;
+    background-image: image-url('nicole-wilcox-ExCeuFAH5ak-unsplash.jpg');
+	background-color:rgba(255,255,255,0.8);
+    background-blend-mode:lighten;
+    background-size: contain;
     padding: 20px;
 }
 
-.recipe_box > .rank {
+.show_item_recipe_box > .rank {
 	font-size: 20px;
 	float: left;
 	padding-right: 10px;
 }
 
-.recipe_box > .recipe_image {
+.show_item_recipe_box > .recipe_image {
 	float: left;
 }
 
-.recipe_box > .recipe_name {
+.show_item_recipe_box > .recipe_name {
 	float: left;
 }
 
-.recipe_box > .iine {
+.show_item_recipe_iine {
 	text-align: right;
 	padding-right: 200px;
 }
+
+.admins_item_btn {
+	text-align: right;
+	padding-right: 50px;
+}
+
+.admins_item_container {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.admins_item_box {
+	width: 100%;
+	padding: 30px;
+}
+
+
+
+
+
+
 
