@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root to: 'items#home'
+
   namespace :public do
     devise_for :users, controllers: {
       sessions: 'public/users/sessions',
@@ -13,7 +16,6 @@ Rails.application.routes.draw do
     delete '/like/:recipe_id', to: 'likes#unlike', as: 'unlike'
 
     resources :items, only: [:index, :show]
-    root to: 'items#home'
 
     get 'users/unsubscribe', to: 'users#unsubscribe', as: 'user_unsubscribe'
     patch 'users/withdraw', to: 'users#withdraw', as: 'user_withdraw'

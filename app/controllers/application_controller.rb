@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     if resource_or_scope.is_a?(Admin)
       admins_recipe_home_path
     else
-      public_root_path
+      root_path
     end
     end
 
