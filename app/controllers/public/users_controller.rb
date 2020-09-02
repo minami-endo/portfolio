@@ -25,7 +25,7 @@ class Public::UsersController < ApplicationController
     @user.update(is_deleted: "withdrawal")
     reset_session
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-    redirect_to public_root_path
+    redirect_to root_path
   end
 
   private

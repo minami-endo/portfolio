@@ -36,7 +36,7 @@ RSpec.describe "Items", type: :request do
   describe 'トップページ' do
     context "トップページが正しく表示される" do
       before do
-        get public_root_path
+        get root_path
       end
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
