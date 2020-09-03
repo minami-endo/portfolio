@@ -24,6 +24,10 @@
 					<td class="recipe_title">難易度</td>
 					<td><%= @recipe.difficulty_level_i18n %></td>
 				</tr>
+				<tr>
+					<td class="recipe_title">投稿日時</td>
+					<td><%= @recipe.created_at.to_s(:datetime_jp) %></td>
+				</tr>
 			</table>
 	      </div>
 	      <div class="col-lg-3"></div>

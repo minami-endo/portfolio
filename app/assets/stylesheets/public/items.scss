@@ -139,16 +139,6 @@
 	padding: 10px;
 }
 
-.main_item_container > .item_headline {
-	font-size: 30px;
-	color: #555555;
-	text-align: center;
-	line-height: 100px;
-	background-color: #EEFFFF;
-	height: 100px;
-	width: 100%;
-}
-
 .show_item_container > .flex {
 	background-color: #ECECEC;
 	background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
@@ -217,7 +207,9 @@
 	padding: 30px;
 }
 
-
+.rank {
+	color: #B8860B;
+}
 
 
 

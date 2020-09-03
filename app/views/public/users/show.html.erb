@@ -37,8 +37,16 @@
       </table>
     </div>
   </div>
-  <div class="user_edit"><%= link_to "プロフィールを編集する", edit_public_user_path(@user) %></div>
-  <div class="user_delete"><%= link_to "退会する", public_user_unsubscribe_path(@user) %></div>
+  <div class="user_edit">
+    <%= link_to edit_public_user_path(@user) do %>
+      <i class="fas fa-edit"></i>プロフィールを編集する
+    <% end %>
+  </div>
+  <div class="user_delete">
+    <%= link_to public_user_unsubscribe_path(@user) do %>
+      退会する<i class="fas fa-user-times"></i>
+    <% end %>
+  </div>
         <% if @previous_top_user.present? && @previous_top_user.user.id == current_public_user.id %>
           <div class="congratulation">
             おめでとうございます！前シーズンに<%= @previous_top_user.user.name %>さんが投稿した<br>

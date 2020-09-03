@@ -8,7 +8,7 @@
 	<div class="index_search_box">
 	  <%= search_form_for @search, url: public_recipes_path do |f| %>
 	    <%= f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc', 'いいね!の多い順': 'likes_count desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %><br>
-	    レシピ名：<%= f.search_field :name_cont, placeholder: '検索するテキストを入力...' %></dt>
+	    レシピ名で検索<%= f.search_field :name_cont, placeholder: '検索するテキストを入力...' %></dt>
 	    <%= f.submit ("検索") , class: 'search-btn'%></dd>
 	  <% end %>
 	</div>
@@ -18,7 +18,6 @@
 	      <%= attachment_image_tag recipe, :image, size:'150x100' %>
 	      <%= link_to recipe.name, public_recipe_path(recipe) %>
 	      <%= recipe.time %>分
-          難易度：<%= recipe.difficulty_level_i18n %>
         </div>
         <div class="relation_user col-lg-6">
           <p>投稿者</p>

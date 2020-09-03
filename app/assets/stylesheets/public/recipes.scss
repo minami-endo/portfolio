@@ -9,13 +9,6 @@
 	margin: 10px 0 40px;
 }
 
-
-.new_recipe_container > .headline {
-	text-align: center;
-	font-size: 20px;
-	padding: 30px 0;
-}
-
 .title {
 	padding: 20px;
 }
@@ -33,24 +26,6 @@
 .period_recipe_rank > .recipe_content > .period {
     text-align: center;
 	font-size: 15px;
-	padding: 30px 0;
-}
-
-.period_recipe_rank > .headline {
-	text-align: center;
-	font-size: 20px;
-	padding: 30px 0;
-}
-
-.edit_recipe_container > .headline {
-	text-align: center;
-	font-size: 20px;
-	padding: 30px 0;
-}
-
-.show_recipe_container > .headline {
-	text-align: center;
-	font-size: 20px;
 	padding: 30px 0;
 }
 
@@ -104,6 +79,8 @@
 
 .index_recipe_box > .recipe_info {
 	float: left;
+	text-align: left;
+	padding-left: 30px;
 }
 
 .relation_user {
@@ -121,14 +98,25 @@
     padding: 20px;
 }
 
+.ranking_recipe_box > .rank {
+	text-align: center;
+	font-size: 20px;
+	color: #B8860B;
+}
+
 .ranking_recipe_box > .relation_item > .recipe_item {
 	padding-top: 5px;
 	font-size: 10px;
 }
 
+.ranking_image {
+	text-align: left;
+	padding-left: 100px;
+}
+
 .ranking_iine {
 	text-align: right;
-	padding-right: 200px;
+	padding-right: 250px;
 }
 
 .index_recipe_iine {
@@ -141,9 +129,24 @@
 	text-align: right;
 }
 
+.create {
+	text-align: right;
+}
 
+.home_rank {
+	text-align: center;
+	font-size: 20px;
+	color: #B8860B;
+}
 
+.home_image {
+	text-align: left;
+	padding-left: 200px;
+}
 
-
+.home_iine {
+	float: right;
+	padding-right: 200px;
+}
 
 

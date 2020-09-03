@@ -11,10 +11,12 @@
 	<% @monthly_ranking.each.with_index(1) do |monthly_ranking, c| %>
 	  <div class="ranking_recipe_box">
 	    <div class="rank">第<%= c %>位</div>
-	    <%= attachment_image_tag monthly_ranking, :image, size:'150x100' %>
-	    <%= link_to monthly_ranking.name, public_recipe_path(monthly_ranking) %>
+	    <div class="ranking_image">
+	      <%= attachment_image_tag monthly_ranking, :image, size:'150x100' %>
+	      <%= link_to monthly_ranking.name, public_recipe_path(monthly_ranking) %>
+	    </div>
 	    <div class="ranking_iine"><%= render 'public/likes/like', recipe: monthly_ranking %></div>
-	    <%= monthly_ranking.created_at %>
+	    <div class="create">投稿日時：<%= monthly_ranking.created_at.to_s(:datetime_jp) %></div>
 	  </div>
 	<% end %>
   </div>
