@@ -41,5 +41,9 @@
   </div>
   <div class="submit"><%= f.submit "更新する" %></div>
 <% end %>
-<div class="profile"><%= link_to "マイページへ", public_user_path(@user) %></div>
+  <div class="link_mypage">
+	<%= link_to public_user_path(@user) do %>
+	  マイページへ<i class="far fa-hand-point-right"></i>
+	<% end %>
+  </div>
 </div>

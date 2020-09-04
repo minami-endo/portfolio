@@ -33,7 +33,6 @@ logo {
 	line-height: 70px;
 }
 
-
 .milk-image1 {
 	background-image: image-url('/robert-hrovat-jzHb2uzrHiM-unsplash.jpg');
 	background-size: cover;
@@ -95,6 +94,7 @@ footer {
 	text-align: center;
 	font-size: 20px;
 	padding: 30px 0;
+	background-color: #ffffff;
 }
 
 .period {
@@ -103,6 +103,36 @@ footer {
 	padding: 10px 0;
 	color: #FF9900;
 }
+
+.dot {
+  margin: auto;
+  width: 100%;
+  background-color: #ffffff;
+  background-image: radial-gradient(#75A9FF 8%, transparent 6%), radial-gradient(#75A9FF 8%, transparent 6%);
+  background-position: 0 0, 8px 8px;
+  background-size : 16px 16px;
+}
+
+.container {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.page {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

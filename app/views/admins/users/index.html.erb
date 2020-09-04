@@ -1,24 +1,16 @@
 <h1>Admins::Users#index</h1>
 <p>Find me in app/views/admins/users/index.html.erb</p>
 
-
-<h1>ユーザー一覧</h1>
-<div class="container">
-	
-		<% @users.each do |user| %>
-		<div class="index_user_box">
-		    <%= attachment_image_tag user, :image, size:'150x100' %>
-			<%= user.name %>
-			<%= user.comment %>
-			<%= user.email %>
-		    <%= user.phone_number %>
-		    <%= user.postal_code %>
-		    <%= user.address %>
-		    <%= user.is_deleted_i18n %>
-		    <%= link_to "このユーザー情報を見る", admins_user_path(user) %>
-		    </div>
-		<% end %>
-	
-<%= paginate @users %>
-
-</div>
+<div class="headline">ユーザー</div>
+  <div class="container">
+	  <% @users.each do |user| %>
+	    <div class="admins_user_flex">
+	      <div class="admins_user_image"><%= attachment_image_tag user, :image, size:'200x150' %></div>
+		  <div class="admins_user_name">ユーザー名：<%= user.name %></div>
+		  <div class="admins_user_info">
+	        <%= link_to "このユーザー情報を見る", admins_user_path(user) %>
+		  </div>
+		</div>
+	  <% end %>
+      <div class="page"><%= paginate @users %></div>
+  </div>

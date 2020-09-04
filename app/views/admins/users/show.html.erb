@@ -2,23 +2,69 @@
 <p>Find me in app/views/admins/users/show.html.erb</p>
 
 
-<%= attachment_image_tag @user, :image, size:'150x100' %>
-	<%= @user.name %>
-	<%= @user.comment %>
-	<%= @user.email %>
-    <%= @user.phone_number %>
-    <%= @user.postal_code %>
-    <%= @user.address %>
-    <%= @user.is_deleted_i18n %>
+<div class="headline">ユーザー詳細</div>
+  <div class="user_show">
+    <div class="user_show_image">
+      <%= attachment_image_tag @user, :image, size:'200x200' %>
+    </div>
+    <div class="content">
+      <table>
+        <tr>
+          <td class="user_title">名前</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td class="user_title">コメント</td>
+          <td><%= @user.comment %></td>
+        </tr>
+		<tr>
+          <td class="user_title">郵便番号</td>
+		  <td><%= @user.postal_code %></td>
+	　　 </tr>
+		<tr>
+		  <td class="user_title">住所</td>
+		  <td><%= @user.address %></td>
+		</tr>
+		<tr>
+		  <td class="user_title">電話番号</td>
+		  <td><%= @user.phone_number %></td>
+		</tr>
+		<tr>
+		  <td class="user_title">メールアドレス</td>
+		  <td><%= @user.email %></td>
+		</tr>
+		<tr>
+		  <td class="user_title">会員ステータス</td>
+		  <td><%= @user.is_deleted_i18n %></td>
+		</tr>
+      </table>
+    </div>
+  </div>
 
-<p>このユーザーが投稿したレシピ</p>
-<% @recipes.each do |recipe| %>
-    <%= attachment_image_tag recipe, :image, size:'150x100' %>
-	<%= link_to recipe.name, admins_recipe_path(recipe) %>
-	<%= recipe.ingredient %>
-	<%= recipe.time %>分
-	<%= recipe.how_to_make %>
-    <%= recipe.difficulty_level_i18n %>
-	<%= render 'public/likes/admin_like', recipe: recipe %>
-<% end %>
-<%= paginate @recipes %>
+  <div class="headline">このユーザーが投稿したアレンジレシピ</div>
+  <div class="dot">
+  <div class="container">
+    <% @recipes.each do |recipe| %>
+      <div class="recipe_box">
+        <div class="user_recipe">
+          <%= link_to admins_recipe_path(recipe) do %>
+            <div><%= attachment_image_tag recipe, :image, size:'150x100' %></div>
+            <div class="user_recipe_name"><%= recipe.name %></div>
+          <% end %>
+        </div>
+        <div class="iine">
+          <%= render 'public/likes/admin_like', recipe: recipe %>
+        </div>
+        <div class="relation_item">
+          <p><<この商品をアレンジ</p>
+          <%= link_to admins_item_path(recipe.item) do %>
+            <div class="user_recipe_item"><%= recipe.item.name %></div>
+            <div><%= attachment_image_tag recipe.item, :image, size:'70x35' %></div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div class="page"><%= paginate @recipes %></div>
+  </div>
+</div>
+

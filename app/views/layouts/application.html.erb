@@ -13,7 +13,7 @@
 
   <body>
     <header class="navbar navbar-fixed-top" style="background-color: #FFFFFF; height: 70px;">
-      <div class="container">
+      <div class="">
         <% if admins_admin_signed_in? %>
           <%= link_to "SUNNY MILK", admins_recipe_home_path, id: "logo", :style=>"font-size:30px;" %>
          　 <ul class="nav navbar-nav navbar-right">
@@ -31,7 +31,7 @@
               <li><%= link_to "マイページ", public_user_path(current_public_user) %></li>
               <li><%= link_to "商品", public_items_path %></li>
               <li><%= link_to "レシピ", public_recipes_path %></li>
-              <li><%= link_to "月間レシピランキング", public_recipes_ranking_path %></li>
+              <li><%= link_to "シーズンレシピランキング", public_recipes_ranking_path %></li>
               <li><%= link_to "ログアウト", destroy_public_user_session_path, method: :delete %></li>
             </ul>
 

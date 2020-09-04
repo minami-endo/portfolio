@@ -4,23 +4,33 @@
 
 <div class="period_recipe_rank">
   <div class="headline">今シーズンのアレンジレシピランキング</div>
-  <div class="recipe_content">
-  	<div class="period">
-  	  <%= "#{Recipe.period[:start_month].month}月~#{Recipe.period[:end_month].month}月" %>
-    </div>
+  <div class="period">
+  	<span class="period_font"><%= "#{Recipe.period[:start_month].month}月〜#{Recipe.period[:end_month].month}月" %></span>
+  </div>
+  <div class="dot">
+  <div class="container">
 	<% @monthly_ranking.each.with_index(1) do |monthly_ranking, c| %>
-	  <div class="ranking_recipe_box">
+	  <div class="ranking_recipe_background">
 	    <div class="rank">第<%= c %>位</div>
-	    <div class="ranking_image">
-	      <%= attachment_image_tag monthly_ranking, :image, size:'150x100' %>
-	      <%= link_to monthly_ranking.name, public_recipe_path(monthly_ranking) %>
+	    <div class="ranking_recipe_box">
+		    <div class="ranking_image">
+		    	<%= link_to public_recipe_path(monthly_ranking) do %>
+		    	  <%= attachment_image_tag monthly_ranking, :image, size:'150x100' %>
+		          <div class="ranking_recipi_name"><%= monthly_ranking.name %></div>
+		        <% end %>
+		    </div>
+		    <div class="ranking_info">
+		      <p>所要時間：<%= monthly_ranking.time %>分</p>
+	          <p>難易度：<% monthly_ranking.difficulty_level %></p>
+		    </div>
+		    <div class="ranking_iine"><%= render 'public/likes/like', recipe: monthly_ranking %></div>
+		    <div class="create">投稿日時：<%= monthly_ranking.created_at.to_s(:datetime_jp) %></div>
 	    </div>
-	    <div class="ranking_iine"><%= render 'public/likes/like', recipe: monthly_ranking %></div>
-	    <div class="create">投稿日時：<%= monthly_ranking.created_at.to_s(:datetime_jp) %></div>
 	  </div>
 	<% end %>
   </div>
 <%= paginate @monthly_ranking %>
+</div>
 </div>
 
 

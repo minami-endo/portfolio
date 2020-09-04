@@ -37,19 +37,22 @@
       </table>
     </div>
   </div>
-  <div class="user_edit">
-    <%= link_to edit_public_user_path(@user) do %>
-      <i class="fas fa-edit"></i>プロフィールを編集する
-    <% end %>
-  </div>
-  <div class="user_delete">
-    <%= link_to public_user_unsubscribe_path(@user) do %>
-      退会する<i class="fas fa-user-times"></i>
-    <% end %>
+  <div class="user_btn">
+    <div class="user_edit">
+      <%= link_to edit_public_user_path(@user) do %>
+        <i class="fas fa-edit"></i>プロフィールを編集する
+      <% end %>
+    </div>
+    <div class="user_delete">
+      <%= link_to public_user_unsubscribe_path(@user) do %>
+        退会する<i class="fas fa-user-times"></i>
+      <% end %>
+    </div>
   </div>
         <% if @previous_top_user.present? && @previous_top_user.user.id == current_public_user.id %>
           <div class="congratulation">
-            おめでとうございます！前シーズンに<%= @previous_top_user.user.name %>さんが投稿した<br>
+            おめでとうございます！<br>
+            前シーズンに<%= @previous_top_user.user.name %>さんが投稿した<br>
             「<%= @previous_top_user.name %>」というレシピが人気No.1になりました。<br>
             ご住所：<%= @previous_top_user.user.address %>宛に景品をお送りいたします！
             <i class="fas fa-gifts"></i>
@@ -58,25 +61,31 @@
        <% end %>
 </div>
 
-<div class="user_recipe">
-  <div class="headline">投稿したアレンジレシピ</div>
-  <div class="recipe_content">
+
+<div class="headline">投稿したアレンジレシピ</div>
+  <div class="dot">
+  <div class="container">
     <% @recipes.each do |recipe| %>
-      <div class="recipe_box clearfix">
-        <div class="post_recipe">
-          <div class="recipe_image"><%= attachment_image_tag recipe, :image, size:'150x100' %></div>
-          <div class="recipe_name"><%= link_to recipe.name, public_recipe_path(recipe) %></div>
-        </div>
-        <div class="relation_item">
-          <div class="recipe_item">この商品をアレンジ：<%= link_to recipe.item.name, public_item_path(recipe.item) %></div>
-          <div class="recipe_image"><%= attachment_image_tag recipe.item, :image, size:'50x30' %></div>
+      <div class="recipe_box">
+        <div class="user_recipe">
+          <%= link_to public_recipe_path(recipe) do %>
+            <div><%= attachment_image_tag recipe, :image, size:'150x100' %></div>
+            <div class="user_recipe_name"><%= recipe.name %></div>
+          <% end %>
         </div>
         <div class="iine">
           <%= render 'public/likes/like', recipe: recipe %>
         </div>
+        <div class="relation_item">
+          <p><<この商品をアレンジ</p>
+          <%= link_to public_item_path(recipe.item) do %>
+            <div class="user_recipe_item"><%= recipe.item.name %></div>
+            <div><%= attachment_image_tag recipe.item, :image, size:'70x35' %></div>
+          <% end %>
+        </div>
       </div>
     <% end %>
     <%= paginate @recipes %>
-
   </div>
 </div>
+

@@ -3,11 +3,11 @@
   <div class="headline"><%= @recipe.name %></div>
     <div class="container">
   	  <div class="row">
-	  	  <div class="col-lg-4">
+	  	  <div class="show_recipe_image col-lg-4">
 	        <%= attachment_image_tag @recipe, :image, size:'250x170' %>
 	      </div>
 	      <div class="col-lg-5">
-	      	<table>
+	      	<table class="table">
 				<tr>
 					<td class="recipe_title">材料</td>
 					<td><%= @recipe.ingredient %></td>
