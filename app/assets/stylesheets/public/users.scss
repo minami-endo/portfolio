@@ -43,7 +43,7 @@
 	display: flex;
 	justify-content: center;
     align-items: center;
-    background-color: #D7EEFF;
+    background-color: #EEEEEE;
 }
 
 .profile > .image {
@@ -102,4 +102,62 @@
 .index_user_box {
 	padding: 20px;
 }
+
+.background {
+	background-color: #ECECEC;
+	background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+	-webkit-background-size: 7px 7px;
+	padding: 50px 0;
+	margin_top: 20px;
+}
+
+.signup_flex {
+	display: flex;
+}
+
+.site_info {
+	width: 50%;
+	margin: 50px 0 0 100px;
+}
+
+.sign_up {
+	width: 50%;
+}
+
+.greeting {
+	font-size: 25px;
+	background: linear-gradient(transparent 60%, #A4C6FF 60%);
+}
+
+.explain {
+	font-size: 20px;
+	padding: 30px 0;
+}
+
+.explain_ranking {
+	font-size: 15px;
+	padding: 30px 0;
+}
+
+.sign_up_image {
+	text-align: center;
+}
+
+.signin_flex {
+	display: flex;
+	justify-content: center;
+}
+
+.sign_in {
+	padding-right: 200px;
+}
+
+.sign_in_image {
+	width: 200px;
+}
+
+.actions {
+	padding-top: 20px;
+}
+
 

@@ -3,12 +3,13 @@
 
 <div class="container">
   <div class="headline">本日投稿されたレシピ<%= @today_recipe %>件</div>
-  <div class="admins_today_recipe_content">
+  <div class="today_recipe_content">
   <% @recipes.each do |recipe| %>
-    <% if(recipe[:created_at].to_s.match(/#{Date.today.to_s}.+/)) %>
-      <%= recipe.name %>
-      <%= attachment_image_tag recipe, :image, size:'150x100' %>
-    <% end %>
+    <div class="today_tecipe_box">
+      <% if(recipe[:created_at].to_s.match(/#{Date.today.to_s}.+/)) %>
+        <%= link_to recipe.name, admins_recipe_path(recipe) %>
+      <% end %>
+    </div>
   <% end %>
 </div>
 </div>

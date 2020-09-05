@@ -2,15 +2,36 @@
 <p>Find me in app/views/admins/items/new.html.erb</p>
 
 
-<h1>新商品の投稿</h1>
+<div class="headline">商品を追加</div>
+<div class="new_item_background">
+  <div class="container">
+  	<%= form_for(@item, url: admins_items_path, method: :post) do |f| %>
+  	  <div class="row">
+	  	  <div class="col-lg-4">
+	        <%= f.attachment_field :image %>
+	      </div>
+	      <div class="col-lg-5">
+	      	<table>
+				<tr>
+					<td class="title"><%= f.label :商品名 %></td>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<td class="title"><%= f.label :商品説明 %></td>
+					<td><%= f.text_field :caption %></td>
+				</tr>
+				<tr>
+					<td class="title"><%= f.label :税抜価格 %></td>
+					<td><%= f.text_field :price %></td>
+				</tr>
+			</table>
+	      </div>
+	      <div class="col-lg-3"></div>
+	  </div>
+	  <div class="row">
+		<div class="create_btn"><%= f.submit "追加する" %></div>
+	  </div>
+	<% end %>
+  </div>
+</div>
 
-<%= form_for(@item, url: admins_items_path, method: :post) do |f| %>
-    <%= f.attachment_field :image %>
-	<%= f.label :商品名 %>
-	  <%= f.text_field :name %>
-	<%= f.label :商品説明 %>
-	  <%= f.text_field :caption %>
-	<%= f.label :税抜価格 %>
-	  <%= f.text_field :price %>
-	<%= f.submit "作成する" %>
-<% end %>

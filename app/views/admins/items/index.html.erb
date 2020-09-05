@@ -16,5 +16,8 @@
 		  </div>
 		</div>
 	  <% end %>
+	  <div class="new_item_path">
+	  	<%= link_to "商品を追加する", new_admins_item_path, class:"btn btn-primary" %>
+	  </div>
       <div class="page"><%= paginate @items %></div>
   </div>

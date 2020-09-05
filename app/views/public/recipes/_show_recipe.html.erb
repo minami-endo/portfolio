@@ -25,6 +25,10 @@
 					<td><%= @recipe.difficulty_level_i18n %></td>
 				</tr>
 				<tr>
+					<td class="recipe_title">投稿者</td>
+					<td><%= @recipe.user.name %></td>
+				</tr>
+				<tr>
 					<td class="recipe_title">投稿日時</td>
 					<td><%= @recipe.created_at.to_s(:datetime_jp) %></td>
 				</tr>

@@ -1,49 +1,66 @@
-<h2>Sign up</h2>
+<div class="headline">新規会員登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/users/shared/error_messages", resource: resource %>
+<div class="background">
+    <div class="signup_flex">
+      <div class="site_info">
+        <span class="greeting">SUNNY MILKのサイトへようこそ！</span>
+        <div class="explain">
+          SUNNY MILKは、バターはチーズなどの乳製品を扱う乳業メーカーです。<br>
+          このサイトでは、SUNNY MILK製品を使用したレシピを募集しています。
+        </div>
+        <div class="explain_ranking">
+          1〜3月、4〜6月、7〜9月、10〜12月の期間内に投稿されたレシピの中で<br>
+          それぞれ最人気レシピを投稿した投稿者の方には<br>
+          豪華景品をプレゼントいたします！
+        </div>
+        <%= image_tag '/donald-modeste-RIPtkzf8vno-unsplash.jpg', class:"sign_up_image", alt: "牛乳の写真", title: "牛乳", width: "300", hight: "200" %>
+      </div>
+      <div class="sign_up">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "public/users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+          <div class="field">
+            <%= f.label :お名前 %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :postal_code %><br />
-    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-  </div>
+          <div class="field">
+            <%= f.label :郵便番号 %><br />
+            <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_area :address, autofocus: true, autocomplete: "address" %>
-  </div>
+          <div class="field">
+            <%= f.label :住所 %><br />
+            <%= f.text_area :address, autofocus: true, autocomplete: "address" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
-  </div>
+          <div class="field">
+            <%= f.label :電話番号 %><br />
+            <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+          <div class="field">
+            <%= f.label :メールアドレス %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+          <div class="field">
+            <%= f.label :パスワード %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 字以上)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+          <div class="field">
+            <%= f.label :パスワード（確認用） %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/users/shared/links" %>
+          <div class="actions">
+            <%= f.submit "登録" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>

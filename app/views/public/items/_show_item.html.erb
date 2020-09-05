@@ -27,16 +27,23 @@
           <div class="rank">第<%= rank %>位</div>
           <div class="show_item_recipe_flex">
             <div class="show_item_recipe">
-              <%= link_to public_recipe_path(recipe_rank) do %>
-                <div><%= attachment_image_tag recipe_rank, :image, size:'200x150' %></div>
-                <div class="show_item_name"><%= recipe_rank.name %></div>
+              <% if admins_admin_signed_in? %>
+                <%= link_to admins_recipe_path(recipe_rank) do %>
+                  <div><%= attachment_image_tag recipe_rank, :image, size:'200x150' %></div>
+                  <div class="show_item_name"><%= recipe_rank.name %></div>
+                <% end %>
+              <% else %>
+                <%= link_to public_recipe_path(recipe_rank) do %>
+                  <div><%= attachment_image_tag recipe_rank, :image, size:'200x150' %></div>
+                  <div class="show_item_name"><%= recipe_rank.name %></div>
+                <% end %>
               <% end %>
             </div>
             <div class="show_item_recipe_iine">
-              <% if public_user_signed_in? %>
-                <%= render 'public/likes/like', recipe: recipe_rank %>
-              <% else %>
+              <% if admins_admin_signed_in? %>
                 <%= render 'public/likes/admin_like', recipe: recipe_rank %>
+              <% else %>
+                <%= render 'public/likes/like', recipe: recipe_rank %>
               <% end %>
             </div>
           </div>

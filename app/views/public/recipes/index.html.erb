@@ -22,17 +22,15 @@
 	        </div>
 	        <div class="index_recipe_info">
 	          <p>所要時間：<%= recipe.time %>分</p>
-	          <p>難易度：<%= recipe.difficulty_level %></p>
+	          <p>難易度：<%= recipe.difficulty_level_i18n %></p>
 	        </div>
 	        <div class="index_recipe_iine">
 	          <%= render 'public/likes/like', recipe: recipe %>
 	        </div>
 	        <div class="index_relation_user">
 	          <p><<投稿者</p>
-	            <%= link_to public_user_path(recipe.user_id) do %>
 				  <%= attachment_image_tag recipe.user, :image, size:'50x50' %>
 			      <div class="relation_user_name"><%= recipe.user.name %></div>
-			    <% end %>
 			</div>
 	      </div>
 	    <% end %>

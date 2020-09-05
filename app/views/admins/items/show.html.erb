@@ -3,8 +3,13 @@
 
 <div class="admins_item_btn">
   この商品を
-  <%= link_to "編集する", edit_admins_item_path(@item) %>・
-  <%= link_to "削除する", admins_item_path(@item), method: :delete, data: {confirm: "この商品を削除しますか？"} %>
+  <%= link_to edit_admins_item_path(@item) do %>
+    <i class="fas fa-edit"></i>編集する
+  <% end %>
+  ・
+  <%= link_to admins_item_path(@item), method: :delete, data: {confirm: "この商品を削除しますか？"} do %>
+    <i class="fas fa-trash-alt"></i>削除する
+  <% end %>
 </div>
 
 <%= render 'public/items/show_item', item: @item, recipe_ranks: @recipe_ranks, not_likes_recipes: @not_likes_recipes %>

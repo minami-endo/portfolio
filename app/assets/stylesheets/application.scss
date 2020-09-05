@@ -28,30 +28,32 @@
     width: 100%;
 }
 
-logo {
+#logo {
 	font-size: 100px;
 	line-height: 70px;
+	margin: 10px 0 0 30px;
 }
 
 .milk-image1 {
-	background-image: image-url('/robert-hrovat-jzHb2uzrHiM-unsplash.jpg');
+	background-image: image-url('/leon-ephraim-AxoNnnH1Y98-unsplash.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 700px;
+	height: 800px;
+	background-position: center center;
 }
 
 .milk-image2 {
-	background-image: image-url('/PP_gyunyubin_TP_V.jpg');
+	background-image: image-url('/becca-tapert-jNRoaz5xY_c-unsplash.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 700px;
+	height: 800px;
 }
 
 .milk-image3 {
-	background-image: image-url('robin-worrall-H5Y2Nb8hreU-unsplash.jpg' );
+	background-image: image-url('/jagoda-kondratiuk-sDeGlMAwcH4-unsplash.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 700px;
+	height: 800px;
 }
 
 .main {
