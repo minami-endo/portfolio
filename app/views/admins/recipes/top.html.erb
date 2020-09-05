@@ -1,7 +1,8 @@
-<h1>Admins::Recipes#top</h1>
-<p>Find me in app/views/admins/recipes/top.html.erb</p>
 
 <div class="headline">今シーズンの最人気レシピ</div>
+<div class="admins_period">
+  <span class="admins_period_font"><%= "#{Recipe.period[:start_month].month}月〜#{Recipe.period[:end_month].month}月" %></span>
+</div>
 <div class="dot">
 <div class="container">
   <div class="admins_recipi_name">レシピ名「<%= @recipe_ranks.name %>」</div>
