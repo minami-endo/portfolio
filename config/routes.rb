@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   namespace :admins do
     devise_for :admins, controllers: {
       sessions: 'admins/admins/sessions',
+      registrations: 'admins/admins/registrations',
       passwords: 'client/admins/passwords',
     }
 
