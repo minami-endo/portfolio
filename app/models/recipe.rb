@@ -22,18 +22,18 @@ class Recipe < ApplicationRecord
   def self.monthly_ranking
     beginning_of_month = period[:start_month]
     end_of_month = period[:end_month]
-    joins(:likes).merge(Like.group(:recipe_id).order('count(recipe_id) desc'))
-                .where(created_at: beginning_of_month..end_of_month)
+    joins(:likes).merge(Like.group(:recipe_id).order('count(recipe_id) desc')).
+      where(created_at: beginning_of_month..end_of_month)
   end
 
   def self.monthly_top
-   beginning_of_month = period[:start_month]
-   end_of_month = period[:end_month]
-   joins(:likes).merge(Like.group(:recipe_id).order('count(recipe_id) desc'))
-                .where(created_at: beginning_of_month..end_of_month).first
+    beginning_of_month = period[:start_month]
+    end_of_month = period[:end_month]
+    joins(:likes).merge(Like.group(:recipe_id).order('count(recipe_id) desc')).
+      where(created_at: beginning_of_month..end_of_month).first
   end
 
-   def self.period
+  def self.period
     year = Time.now.strftime('%Y').to_i
     start_months = [1, 4, 7, 10]
     end_months = [3, 6, 9, 12]
@@ -49,16 +49,16 @@ class Recipe < ApplicationRecord
       end
     end
     { start_month: start_month, end_month: end_month }
-   end
+  end
 
-   def self.previous_monthly_top
-   pre_beginning_of_month = previous_period[:previous_start_month]
-   pre_end_of_month = previous_period[:previous_end_month]
-   joins(:likes).merge(Like.group(:recipe_id).order('count(recipe_id) desc'))
-                .where(created_at: pre_beginning_of_month..pre_end_of_month).first
-   end
+  def self.previous_monthly_top
+    pre_beginning_of_month = previous_period[:previous_start_month]
+    pre_end_of_month = previous_period[:previous_end_month]
+    joins(:likes).merge(Like.group(:recipe_id).order('count(recipe_id) desc')).
+      where(created_at: pre_beginning_of_month..pre_end_of_month).first
+  end
 
-   def self.previous_period
+  def self.previous_period
     year = Time.now.strftime('%Y').to_i
     previous_start_months = [1, 4, 7, 10]
     previous_end_months = [3, 6, 9, 12]
@@ -74,5 +74,5 @@ class Recipe < ApplicationRecord
       end
     end
     { previous_start_month: previous_start_month, previous_end_month: previous_end_month }
-   end
+  end
 end

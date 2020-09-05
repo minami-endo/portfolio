@@ -12,6 +12,7 @@ class Public::LikesController < ApplicationController
   end
 
   private
+
   def set_variables
     @recipe = Recipe.find(params[:recipe_id])
     @id_name = "#like-link-#{@recipe.id}"

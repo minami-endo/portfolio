@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-
   let(:user) { create(:user) }
 
   describe 'ユーザー登録ページ' do
@@ -9,6 +8,7 @@ RSpec.describe "Users", type: :request do
       before do
         get  new_public_user_registration_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -23,6 +23,7 @@ RSpec.describe "Users", type: :request do
       before do
         get new_public_user_session_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -38,6 +39,7 @@ RSpec.describe "Users", type: :request do
         sign_in user
         get public_user_path(user)
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -53,6 +55,7 @@ RSpec.describe "Users", type: :request do
         sign_in user
         get edit_public_user_path(user)
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -68,6 +71,7 @@ RSpec.describe "Users", type: :request do
         sign_in user
         get public_user_unsubscribe_path, params: { id: user.id }
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end

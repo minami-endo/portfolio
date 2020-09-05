@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Recipes", type: :request do
-
   let(:admin) { create(:admin) }
   let(:user) { create(:user) }
   let(:item) { create(:item) }
@@ -15,6 +14,7 @@ RSpec.describe "Recipes", type: :request do
         sign_in admin
         get admins_recipes_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -30,6 +30,7 @@ RSpec.describe "Recipes", type: :request do
         sign_in admin
         sign_in user
       end
+
       it 'リクエストは200 OKとなること' do
         get admins_recipe_path(recipe)
         expect(response.status).to eq 200
@@ -47,6 +48,7 @@ RSpec.describe "Recipes", type: :request do
         sign_in admin
         get admins_recipe_top_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -62,6 +64,7 @@ RSpec.describe "Recipes", type: :request do
         sign_in admin
         get admins_recipe_home_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -71,8 +74,3 @@ RSpec.describe "Recipes", type: :request do
     end
   end
 end
-
-
-
-
-

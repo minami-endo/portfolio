@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Recipes", type: :request do
-
   let!(:user) { create(:user) }
   let!(:item) { create(:item) }
   let(:recipe) do
@@ -14,6 +13,7 @@ RSpec.describe "Recipes", type: :request do
         sign_in user
         get public_recipes_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -29,6 +29,7 @@ RSpec.describe "Recipes", type: :request do
         sign_in user
         get new_public_recipe_path, params: { recipe: { item_id: item.id } }
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -44,6 +45,7 @@ RSpec.describe "Recipes", type: :request do
         sign_in user
         get public_recipe_path(recipe)
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -59,6 +61,7 @@ RSpec.describe "Recipes", type: :request do
         sign_in user
         get edit_public_recipe_path(recipe)
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -74,6 +77,7 @@ RSpec.describe "Recipes", type: :request do
         sign_in user
         get public_recipes_ranking_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   context "データが正しく保存される" do
     let!(:user) do
       build(:user)
@@ -67,4 +66,3 @@ RSpec.describe User, type: :model do
     end
   end
 end
-
