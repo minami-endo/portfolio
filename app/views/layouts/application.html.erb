@@ -17,7 +17,7 @@
         <% if admins_admin_signed_in? %>
           <%= link_to "SUNNY MILK", admins_recipe_home_path, id: "logo", :style=>"font-size:30px;" %>
          　 <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "今シーズン最人気レシピ", admins_recipe_top_path %></li>
+              <li><%= link_to "前／今シーズン最人気レシピ", admins_recipe_top_path %></li>
               <li><%= link_to "レシピ", admins_recipes_path %></li>
               <li><%= link_to "商品", admins_items_path %></li>
               <li><%= link_to "会員", admins_users_path %></li>
