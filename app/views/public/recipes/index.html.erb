@@ -1,5 +1,6 @@
 
 <div class="headline">投稿されたレシピ</div>
+  <div class="dot">
 	<div class="index_search_box">
 	  <%= search_form_for @search, url: public_recipes_path do |f| %>
 	    <%= f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc', 'いいね!の多い順': 'likes_count desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %><br>
@@ -7,7 +8,6 @@
 	    <%= f.submit ("検索") , class: 'search-btn'%>
 	  <% end %>
 	</div>
-	<div class="dot">
 	  <div class="container">
 	    <% @recipes.each do |recipe| %>
 	      <div class="index_recipe_box">
@@ -31,6 +31,6 @@
 			</div>
 	      </div>
 	    <% end %>
-        <div class="page"><%= paginate @recipes %></div>
-      </div>
-    </div>
+	    <div class="page"><%= paginate @recipes %></div>
+	  </div>
+  </div>
