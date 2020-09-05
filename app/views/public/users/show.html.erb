@@ -3,7 +3,7 @@
   <div class="headline">マイページ</div>
   <div class="profile">
     <div class="image">
-      <%= attachment_image_tag @user, :image, size:'200x200' %>
+      <%= attachment_image_tag @user, :image, :fill, 200, 200 %>
     </div>
     <div class="content">
       <table>
@@ -58,7 +58,6 @@
         <% end %>
        <% end %>
 </div>
-
 
 <div class="headline">投稿したアレンジレシピ</div>
   <div class="dot">
