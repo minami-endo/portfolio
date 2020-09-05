@@ -2,7 +2,6 @@ require 'rails_helper'
 require "refile/file_double"
 
 RSpec.describe "Items", type: :request do
-
   let(:admin) { create(:admin) }
   let(:item) { create(:item) }
 
@@ -12,6 +11,7 @@ RSpec.describe "Items", type: :request do
         sign_in admin
         get admins_items_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -27,6 +27,7 @@ RSpec.describe "Items", type: :request do
         sign_in admin
         get new_admins_item_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -41,6 +42,7 @@ RSpec.describe "Items", type: :request do
       before do
         sign_in admin
       end
+
       it 'リクエストは200 OKとなること' do
         get admins_item_path(item)
         expect(response.status).to eq 200
@@ -58,6 +60,7 @@ RSpec.describe "Items", type: :request do
         sign_in admin
         get edit_admins_item_path(item)
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -67,12 +70,3 @@ RSpec.describe "Items", type: :request do
     end
   end
 end
-
-
-
-
-
-
-
-
-

@@ -19,38 +19,56 @@
   <% end %>
 </div>
 
-
-<div class="show_item_recipe_rank">
   <div class="headline">この商品のアレンジレシピランキング</div>
-  <div class="show_item_recipe_content">
-    <% recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
-      <div class="show_item_recipe_box">
-        <div class="rank">第<%= rank %>位</div>
-        <%= attachment_image_tag recipe_rank, :image, size:'200x150' %>
-        <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
-        <div class="show_item_recipe_iine">
-          <% if public_user_signed_in? %>
-            <%= render 'public/likes/like', recipe: recipe_rank %>
-          <% else %>
-            <%= render 'public/likes/admin_like', recipe: recipe_rank %>
-          <% end %>
+    <div class="dot">
+    <div class="container">
+      <% recipe_ranks.each.with_index(1) do |recipe_rank, rank| %>
+        <div class="show_item_recipe_box">
+          <div class="rank">第<%= rank %>位</div>
+          <div class="show_item_recipe_flex">
+            <div class="show_item_recipe">
+              <% if admins_admin_signed_in? %>
+                <%= link_to admins_recipe_path(recipe_rank) do %>
+                  <div><%= attachment_image_tag recipe_rank, :image, size:'200x150' %></div>
+                  <div class="show_item_name"><%= recipe_rank.name %></div>
+                <% end %>
+              <% else %>
+                <%= link_to public_recipe_path(recipe_rank) do %>
+                  <div><%= attachment_image_tag recipe_rank, :image, size:'200x150' %></div>
+                  <div class="show_item_name"><%= recipe_rank.name %></div>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="show_item_recipe_iine">
+              <% if admins_admin_signed_in? %>
+                <%= render 'public/likes/admin_like', recipe: recipe_rank %>
+              <% else %>
+                <%= render 'public/likes/like', recipe: recipe_rank %>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
-    <% end %>
-    <% not_likes_recipes.each do |recipe_rank| %>
-      <div class="show_item_recipe_box">
-        <span class="rank">第<%= (@recipe_ranks.count + 1).to_s %>位</span>
-        <%= attachment_image_tag recipe_rank, :image, size:'200x160' %>
-        <%= link_to recipe_rank.name, public_recipe_path(recipe_rank) %>
-        <div class="show_item_recipe_iine">
-          <% if public_user_signed_in? %>
-            <%= render 'public/likes/like', recipe: recipe_rank %>
-          <% else %>
-            <%= render 'public/likes/admin_like', recipe: recipe_rank %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-    <%= paginate not_likes_recipes %>
+      <% end %>
+      <% not_likes_recipes.each do |recipe_rank| %>
+        <div class="show_item_recipe_box">
+          <span class="rank">第<%= (@recipe_ranks.count + 1).to_s %>位</span>
+          <div class="show_item_recipe_flex">
+            <div class="show_item_recipe">
+              <%= link_to public_recipe_path(recipe_rank) do %>
+                <div><%= attachment_image_tag recipe_rank, :image, size:'200x160' %></div>
+                <div class="show_item_name"><%= recipe_rank.name %></div>
+              <% end %>
+            </div>
+            <div class="show_item_recipe_iine">
+              <% if public_user_signed_in? %>
+                <%= render 'public/likes/like', recipe: recipe_rank %>
+              <% else %>
+                <%= render 'public/likes/admin_like', recipe: recipe_rank %>
+              <% end %>
+            </div>
+          </div>
+          </div>
+      <% end %>
+      <div class="page"><%= paginate not_likes_recipes %></div>
+    </div>
   </div>
-</div>

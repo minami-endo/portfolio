@@ -41,6 +41,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -77,7 +81,7 @@ gem 'enum_help'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 
 gem 'rubocop-airbnb'
 

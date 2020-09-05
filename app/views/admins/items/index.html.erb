@@ -1,16 +1,20 @@
-<h1>Admins::Items#index</h1>
-<p>Find me in app/views/admins/items/index.html.erb</p>
-
 
 <div class="headline">商品</div>
-<div class="admins_item_container">
-  <% @items.each do |item| %>
-    <div class="admins_item_box">
-      <%= attachment_image_tag item, :image, size:'150x100' %>
-	  <%= link_to item.name, admins_item_path(item) %>
-      <%= item.caption %>
-	  <%= item.price %>
-	</div>
-  <% end %>
-  <%= paginate @items %>
-</div>
+  <div class="container">
+	  <% @items.each do |item| %>
+	    <div class="admins_item_flex">
+	      <div class="admins_item_image"><%= attachment_image_tag item, :image, size:'200x150' %></div>
+		  <div class="admins_item_name">
+		  	<%= link_to item.name, admins_item_path(item) %>
+		  </div>
+		  <div class="admins_item_info">
+	        <p>商品説明：<%= item.caption %></p>
+		    <p>税抜き価格：<%= item.price %>円</p>
+		  </div>
+		</div>
+	  <% end %>
+	  <div class="new_item_path">
+	  	<%= link_to "商品を追加する", new_admins_item_path, class:"btn btn-primary" %>
+	  </div>
+      <div class="page"><%= paginate @items %></div>
+  </div>

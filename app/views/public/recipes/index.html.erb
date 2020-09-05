@@ -1,36 +1,36 @@
-<h1>Public::Recipes#index</h1>
-<p>Find me in app/views/public/recipes/index.html.erb</p>
-
 
 <div class="headline">投稿されたレシピ</div>
-<div class="index_recipe_content">
-
 	<div class="index_search_box">
 	  <%= search_form_for @search, url: public_recipes_path do |f| %>
 	    <%= f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc', 'いいね!の多い順': 'likes_count desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %><br>
-	    レシピ名：<%= f.search_field :name_cont, placeholder: '検索するテキストを入力...' %></dt>
-	    <%= f.submit ("検索") , class: 'search-btn'%></dd>
+	    <p>レシピ名で検索：<%= f.search_field :name_cont, placeholder: '検索するテキストを入力...' %></p>
+	    <%= f.submit ("検索") , class: 'search-btn'%>
 	  <% end %>
 	</div>
-    <% @recipes.each do |recipe| %>
-      <div class="index_recipe_box">
-      	<div class="recipe_info col-lg-6">
-	      <%= attachment_image_tag recipe, :image, size:'150x100' %>
-	      <%= link_to recipe.name, public_recipe_path(recipe) %>
-	      <%= recipe.time %>分
-          難易度：<%= recipe.difficulty_level_i18n %>
-        </div>
-        <div class="relation_user col-lg-6">
-          <p>投稿者</p>
-			<%= attachment_image_tag recipe.user, :image, size:'50x50' %>
-		    <%= link_to recipe.user.name, public_user_path(recipe.user_id) %>
-		</div>
-        <div class="index_recipe_iine">
-          <%= render 'public/likes/like', recipe: recipe %>
-        </div>
+	<div class="dot">
+	  <div class="container">
+	    <% @recipes.each do |recipe| %>
+	      <div class="index_recipe_box">
+	      	<div class="index_recipe_image">
+	      	  <%= link_to public_recipe_path(recipe) do %>
+		        <%= attachment_image_tag recipe, :image, size:'150x100' %>
+		        <div class="index_recipe_name"><%= recipe.name %></div>
+		      <% end %>
+	        </div>
+	        <div class="index_recipe_info">
+	          <p>所要時間：<%= recipe.time %>分</p>
+	          <p>難易度：<%= recipe.difficulty_level_i18n %></p>
+	        </div>
+	        <div class="index_recipe_iine">
+	          <%= render 'public/likes/like', recipe: recipe %>
+	        </div>
+	        <div class="index_relation_user">
+	          <p><<投稿者</p>
+				  <%= attachment_image_tag recipe.user, :image, size:'50x50' %>
+			      <div class="relation_user_name"><%= recipe.user.name %></div>
+			</div>
+	      </div>
+	    <% end %>
+        <div class="page"><%= paginate @recipes %></div>
       </div>
-    <% end %>
-</div>
-
-<%= paginate @recipes %>
-
+    </div>

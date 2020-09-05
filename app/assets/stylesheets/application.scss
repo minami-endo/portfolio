@@ -28,31 +28,32 @@
     width: 100%;
 }
 
-logo {
+#logo {
 	font-size: 100px;
 	line-height: 70px;
+	margin: 10px 0 0 30px;
 }
 
-
 .milk-image1 {
-	background-image: image-url('/robert-hrovat-jzHb2uzrHiM-unsplash.jpg');
+	background-image: image-url('/leon-ephraim-AxoNnnH1Y98-unsplash.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 700px;
+	height: 800px;
+	background-position: center center;
 }
 
 .milk-image2 {
-	background-image: image-url('/PP_gyunyubin_TP_V.jpg');
+	background-image: image-url('/becca-tapert-jNRoaz5xY_c-unsplash.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 700px;
+	height: 800px;
 }
 
 .milk-image3 {
-	background-image: image-url('robin-worrall-H5Y2Nb8hreU-unsplash.jpg' );
+	background-image: image-url('/jagoda-kondratiuk-sDeGlMAwcH4-unsplash.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 700px;
+	height: 800px;
 }
 
 .main {
@@ -95,7 +96,37 @@ footer {
 	text-align: center;
 	font-size: 20px;
 	padding: 30px 0;
+	background-color: #ffffff;
 }
+
+.dot {
+  margin: auto;
+  width: 100%;
+  background-color: #ffffff;
+  background-image: radial-gradient(#75A9FF 8%, transparent 6%), radial-gradient(#75A9FF 8%, transparent 6%);
+  background-position: 0 0, 8px 8px;
+  background-size : 16px 16px;
+}
+
+.container {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.page {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

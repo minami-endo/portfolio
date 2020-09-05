@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :phone_number, :address, :postal_code])
   end
 
-
   private
 
   def after_sign_in_path_for(resource_or_scope)
@@ -14,7 +13,7 @@ class ApplicationController < ActionController::Base
     else
       root_path
     end
-    end
+  end
 
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :admins_admin

@@ -4,11 +4,9 @@
 
 
 
-
-.company-name {
+.recipe_post_btn {
 	text-align: center;
-	line-height: 400px;
-	z-index: 20;
+	margin: 10px 0 40px;
 }
 
 .item-box > .flex {
@@ -139,16 +137,6 @@
 	padding: 10px;
 }
 
-.main_item_container > .item_headline {
-	font-size: 30px;
-	color: #555555;
-	text-align: center;
-	line-height: 100px;
-	background-color: #EEFFFF;
-	height: 100px;
-	width: 100%;
-}
-
 .show_item_container > .flex {
 	background-color: #ECECEC;
 	background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
@@ -169,55 +157,41 @@
 	text-align: center;
 }
 
-.show_item_recipe_content {
-    margin: 0 auto;
-    width: 70%;
-}
-
 .show_item_recipe_box {
-    margin-bottom: 30px;
-    background-image: image-url('nicole-wilcox-ExCeuFAH5ak-unsplash.jpg');
-	background-color:rgba(255,255,255,0.8);
-    background-blend-mode:lighten;
-    background-size: contain;
-    padding: 20px;
+    background-color: #EEEEEE;
+	width: 60%;
+	margin: 40px auto;
+    padding: 30px;
+    border-radius: 30px 0 30px 30px;
 }
 
-.show_item_recipe_box > .rank {
+.show_item_recipe_flex {
+	display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.show_item_recipe {
+    text-align: center;
+	width: 60%;
+	padding-left: 100px;
+}
+
+.show_item_name {
 	font-size: 20px;
-	float: left;
-	padding-right: 10px;
-}
-
-.show_item_recipe_box > .recipe_image {
-	float: left;
-}
-
-.show_item_recipe_box > .recipe_name {
-	float: left;
+	padding-top: 10px;
 }
 
 .show_item_recipe_iine {
-	text-align: right;
-	padding-right: 200px;
+	width: 40%;
 }
 
-.admins_item_btn {
-	text-align: right;
-	padding-right: 50px;
+.rank {
+	text-align: center;
+	font-size: 25px;
+	color: #B8860B;
+	padding-bottom: 20px;
 }
-
-.admins_item_container {
-	width: 60%;
-	margin: 0 auto;
-}
-
-.admins_item_box {
-	width: 100%;
-	padding: 30px;
-}
-
-
 
 
 

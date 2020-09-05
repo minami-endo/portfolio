@@ -1,3 +1,64 @@
 // Place all the styles related to the admins/Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.admins_item_btn {
+	text-align: right;
+	padding-right: 70px;
+    font-size: 15px;
+}
+
+.admins_item_box {
+	width: 100%;
+}
+
+.admins_item {
+	padding: 20px 0;
+}
+
+.admins_item_flex {
+    background-color: #ECECEC;
+	background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+	-webkit-background-size: 7px 7px;
+	display: flex;
+	margin: 20px;
+}
+
+.admins_item_image {
+	padding-right: 20px;
+}
+
+.admins_item_name {
+	font-size: 20px;
+	padding: 60px 20px 0 0;
+	width: 350px;
+}
+
+.admins_item_info {
+	font-size: 15px;
+	padding-top: 20px;
+}
+
+.admins_item_info p {
+	padding: 10px 0;
+}
+
+.new_item_path {
+	text-align: center;
+	font-size: 25px;
+}
+
+.new_item_background, .edit_item_background {
+	background-color: #ECECEC;
+	background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+	-webkit-background-size: 7px 7px;
+	padding: 30px 0;
+}
+
+.edit_table {
+	width: 50%;
+	margin: 50px 0;
+}
+
+

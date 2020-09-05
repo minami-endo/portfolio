@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-
   let(:admin) { create(:admin) }
   let(:user) { create(:user) }
 
@@ -11,6 +10,7 @@ RSpec.describe "Users", type: :request do
         sign_in admin
         get admins_users_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -25,6 +25,7 @@ RSpec.describe "Users", type: :request do
       before do
         sign_in admin
       end
+
       it 'リクエストは200 OKとなること' do
         get admins_user_path(user)
         expect(response.status).to eq 200

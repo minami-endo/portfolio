@@ -1,8 +1,8 @@
-<h1>Admins::Recipes#show</h1>
-<p>Find me in app/views/admins/recipes/show.html.erb</p>
 
-<%= render 'public/recipes/show_recipe', recipe: @recipe %>
-<div class="col-lg-8"></div>
-<div class="col-lg-4">
-  <%= render 'public/likes/admin_like', recipe: @recipe %>
+<div class="dot">
+	<%= render 'public/recipes/show_recipe', recipe: @recipe %>
+	<div class="col-lg-8"></div>
+	<div class="col-lg-4">
+	  <%= render 'public/likes/admin_like', recipe: @recipe %>
+	</div>
 </div>

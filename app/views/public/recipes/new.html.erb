@@ -1,10 +1,7 @@
-<h1>Public::Recipes#new</h1>
-<p>Find me in app/views/public/recipes/new.html.erb</p>
-
 
 <div class="new_recipe_container">
   <div class="headline">レシピの投稿</div>
-
+<div class="dot">
   <div class="container">
   	<%= form_for(@recipe, url: public_recipes_path, method: :post) do |f| %>
   	  <div class="row">
@@ -22,7 +19,7 @@
 					<td><%= f.text_field :ingredient %></td>
 				</tr>
 				<tr>
-					<td class="title"><%= f.label :調理時間 %></td>
+					<td class="title"><%= f.label :調理時間 %>（分）</td>
 					<td><%= f.text_field :time %></td>
 				</tr>
 				<tr>
@@ -44,5 +41,5 @@
 	<% end %>
   </div>
 </div>
-
+</div>
 

@@ -1,3 +1,56 @@
 // Place all the styles related to the admins/Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.admins_item_box {
+	width: 100%;
+}
+
+.admins_user {
+	padding: 20px 0;
+}
+
+.admins_user_flex {
+    background-color: #EEEEEE;
+	display: flex;
+	margin: 20px;
+}
+
+.admins_user_image {
+	padding-right: 20px;
+}
+
+.admins_user_name {
+	font-size: 20px;
+	padding: 60px 20px 0 20px;
+	width: 350px;
+}
+
+.admins_user_info {
+	font-size: 15px;
+	padding-top: 70px;
+}
+
+.user_show {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    background-color: #EEEEEE;
+    margin: 0 auto 30px;
+    width: 80%;
+}
+
+.user_show_image {
+	padding-right: 200px;
+}
+
+.user_title {
+	padding: 20px;
+}
+
+.admin_sign_in_image {
+	margin-top: 30px;
+	width: 300px;
+}
+

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Items", type: :request do
-
   let(:user) { create(:user) }
   let(:item) { create(:item) }
 
@@ -11,6 +10,7 @@ RSpec.describe "Items", type: :request do
         sign_in user
         get public_items_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end
@@ -38,6 +38,7 @@ RSpec.describe "Items", type: :request do
       before do
         get root_path
       end
+
       it 'リクエストは200 OKとなること' do
         expect(response.status).to eq 200
       end

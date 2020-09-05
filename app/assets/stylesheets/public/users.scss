@@ -3,62 +3,47 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.user_recipe > .recipe_content {
-    margin: 0 auto;
-    width: 70%;
+
+.recipe_box {
+    background-color: #EEEEEE;
+	width: 60%;
+	margin: 40px auto;
+    padding: 30px;
+    border-radius: 30px 0 30px 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
-.user_recipe > .headline {
-	text-align: center;
+.recipe_box > div:nth-child(3) {
+  margin-left: auto;
+}
+
+.user_recipe {
+    text-align: center;
+	width: 200px;
+}
+
+.user_recipe_name {
 	font-size: 20px;
-	padding: 30px 0;
+	padding-top: 10px;
 }
 
-.user_recipe > .recipe_content > .recipe_box {
-    margin-bottom: 30px;
-    background-image: image-url('nicole-wilcox-ExCeuFAH5ak-unsplash.jpg');
-	background-color:rgba(255,255,255,0.8);
-    background-blend-mode:lighten;
-    background-size: contain;
-    padding: 20px;
-    height: 140px;
-}
-
-.post_recipe {
-    float: left;
-	width: 400px;
-}
-
-.recipe_box > .post_recipe > .recipe_image {
-	float: left;
-}
-
-.recipe_box > .post_recipe > .recipe_name {
-	float: left;
-	padding-left: 20px;
-	line-height: 100px;
-}
-
-.recipe_box > .relation_item {
-	float: left;
+.relation_item {
 	text-align: center;
-	padding: 40px 200px 0 0;
+	width: 200px;
 }
 
-.recipe_box > .relation_item > .recipe_item {
+.user_recipe_item {
 	padding-top: 5px;
-	font-size: 10px;
-}
-
-.recipe_box > .iine {
-	text-align: right;
-	padding: 80px 200px 5px 0;
+	font-size: 13px;
 }
 
 .profile {
 	display: flex;
 	justify-content: center;
     align-items: center;
+    background-color: #EEEEEE;
 }
 
 .profile > .image {
@@ -69,14 +54,10 @@
 	padding: 20px;
 }
 
-.user_edit {
-	text-align: center;
-	padding: 20px 0;
-}
-
-.user_delete {
-	text-align: right;
-	padding: 10px 200px 30px 0;
+.user_btn {
+	display: flex;
+	justify-content: space-around;
+	padding: 10px 0 50px;
 }
 
 .congratulation {
@@ -94,7 +75,7 @@
 	margin: 0 auto;
 }
 
-.edit_profile_container > .profile {
+.link_mypage {
 	float: right;
 }
 
@@ -114,6 +95,69 @@
 	padding-bottom: 40px;
 }
 
+.fa-gifts {
+	color: #D2691E;
+}
 
+.index_user_box {
+	padding: 20px;
+}
+
+.background {
+	background-color: #ECECEC;
+	background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+	-webkit-background-size: 7px 7px;
+	padding: 50px 0;
+	margin_top: 20px;
+}
+
+.signup_flex {
+	display: flex;
+}
+
+.site_info {
+	width: 50%;
+	margin: 50px 0 0 100px;
+}
+
+.sign_up {
+	width: 50%;
+}
+
+.greeting {
+	font-size: 25px;
+	background: linear-gradient(transparent 60%, #A4C6FF 60%);
+}
+
+.explain {
+	font-size: 20px;
+	padding: 30px 0;
+}
+
+.explain_ranking {
+	font-size: 15px;
+	padding: 30px 0;
+}
+
+.sign_up_image {
+	text-align: center;
+}
+
+.signin_flex {
+	display: flex;
+	justify-content: center;
+}
+
+.sign_in {
+	padding-right: 200px;
+}
+
+.sign_in_image {
+	width: 200px;
+}
+
+.actions {
+	padding-top: 20px;
+}
 
 
