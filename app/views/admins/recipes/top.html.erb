@@ -3,6 +3,7 @@
 <div class="admins_period">
   <span class="admins_period_font"><%= "#{Recipe.period[:start_month].month}月〜#{Recipe.period[:end_month].month}月" %></span>
 </div>
+<div class="now_top_recipe">
 <div class="dot">
 <div class="container">
   <div class="admins_recipi_name">レシピ名「<%= @recipe_ranks.name %>」</div>
@@ -43,6 +44,55 @@
 	  <div class="row">
 	  	<div class="admins_recipe_iine">
 	      <%= render 'public/likes/admin_like', recipe: @recipe_ranks %>
+	    </div>
+	  </div>
+</div>
+</div>
+</div>
+<div class="headline">前シーズンの最人気レシピ</div>
+<div class="admins_period">
+  <span class="admins_period_font"><%= "#{Recipe.previous_period[:previous_start_month].month}月〜#{Recipe.previous_period[:previous_end_month].month}月" %></span>
+</div>
+<div class="dot">
+<div class="container">
+  <div class="admins_recipi_name">レシピ名「<%= @previous_top_ranks.name %>」</div>
+  	  <div class="row">
+	  	  <div class="show_recipe_image col-lg-4">
+	        <%= attachment_image_tag @previous_top_ranks, :image, size:'250x170' %>
+	      </div>
+	      <div class="col-lg-5">
+	      	<table class="table">
+				<tr>
+					<td class="recipe_title">材料</td>
+					<td><%= @previous_top_ranks.ingredient %></td>
+				</tr>
+				<tr>
+					<td class="recipe_title">調理時間</td>
+					<td><%= @previous_top_ranks.time %>分</td>
+				</tr>
+				<tr>
+					<td class="recipe_title">作り方</td>
+					<td><%= @previous_top_ranks.how_to_make %></td>
+				</tr>
+				<tr>
+					<td class="recipe_title">難易度</td>
+					<td><%= @previous_top_ranks.difficulty_level_i18n %></td>
+				</tr>
+				<tr>
+					<td class="recipe_title">投稿日時</td>
+					<td><%= @previous_top_ranks.created_at.to_s(:datetime_jp) %></td>
+				</tr>
+				<tr>
+					<td class="recipe_title">投稿者</td>
+					<td><%= link_to @previous_top_ranks.user.name, admins_user_path(@previous_top_ranks.user) %></td>
+				</tr>
+			</table>
+	      </div>
+	      <div class="col-lg-3"></div>
+	　</div>
+	  <div class="row">
+	  	<div class="admins_recipe_iine">
+	      <%= render 'public/likes/admin_like', recipe: @previous_top_ranks %>
 	    </div>
 	  </div>
 </div>

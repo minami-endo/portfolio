@@ -29,6 +29,7 @@ class Admins::RecipesController < ApplicationController
 
   def top
     @recipe_ranks = Recipe.monthly_top
+    @previous_top_ranks = Recipe.previous_monthly_top
   end
 
   def search_params
