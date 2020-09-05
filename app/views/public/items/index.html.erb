@@ -9,9 +9,11 @@
 					<div class="item_name"><%= item.name %></div><br>
 				    <div class="item_caption"><%= item.caption %></div><br>
 					<div class="item_price"><span class="item_price_font">税抜き</span>￥<%= item.price.to_s(:delimited) %></div>
-					<%= form_for(item, url: public_item_path(item), method: :get) do |f| %>
+					<% if public_user_signed_in? %>
+					  <%= form_for(item, url: public_item_path(item), method: :get) do |f| %>
 					    <%= f.hidden_field :item_id, value: item.id %>
-					<div class="submit_btn"><%= f.submit "この商品を見る" %></div>
+					  <div class="submit_btn"><%= f.submit "この商品を見る" %></div>
+				      <% end %>
 				    <% end %>
 				</div>
 			<% end %>
