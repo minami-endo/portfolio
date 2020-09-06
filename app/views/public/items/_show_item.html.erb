@@ -11,11 +11,11 @@
   </div>
 </div>
 <div class="recipe_post_btn">
-  <% if public_user_signed_in? %>
-    <%= form_for(@recipe, url: new_public_recipe_path, method: :get) do |f| %>
-        <%= f.hidden_field :item_id, value: @item.id %>
-        <%= f.submit "この商品を使ったレシピを投稿する" %>
-    <% end %>
+
+<% if public_user_signed_in? %>
+  <%= form_for(@recipe, url: new_public_recipe_path, method: :get) do |f| %>
+      <%= f.hidden_field :item_id, value: @item.id %>
+      <%= f.submit "この商品を使ったレシピを投稿する" %>
   <% end %>
 </div>
 
@@ -81,3 +81,13 @@
       <div class="page"><%= paginate not_likes_recipes %></div>
     </div>
   </div>
+<% elsif %>
+  <div class="not_member_box">
+    <div class="not_member_message">
+      <p>会員登録すると<p>
+      <p>この商品の人気レシピランキングが見られるようになります！<p>
+    </div>
+  </div>
+<% end %>
+
+

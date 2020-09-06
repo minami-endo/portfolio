@@ -1,14 +1,14 @@
 
 <div class="headline">投稿されたレシピ</div>
 <div class="index_recipe_content">
+  <div class="dot">
   <div class="index_search_box">
     <%= search_form_for @search, url: admins_recipes_path do |f| %>
       <%= f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc', 'いいね!の多い順': 'likes_count desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %><br>
-      <p>レシピ名で検索<%= f.search_field :name_cont, placeholder: '検索するテキストを入力...' %></p>
+      <p>レシピ名で検索：<%= f.search_field :name_cont, placeholder: '検索するテキストを入力...' %></p>
       <%= f.submit ("検索") , class: 'search-btn'%></dd>
     <% end %>
   </div>
-  <div class="dot">
     <div class="container">
     <% @recipes.each do |recipe| %>
       <div class="index_recipe_box">
