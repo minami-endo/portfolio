@@ -151,12 +151,70 @@
 	justify-content: center;
 }
 
+.form_box {
+	border-radius: 7px;
+}
+
+.field {
+	width: 500px;
+}
+
 .sign_in {
-	padding-right: 200px;
+    border-right: 1px solid #777777;
+	padding: 50px 50px 20px;
+	margin-right: 50px;
+	width: 40%;
+}
+
+.sign_title {
+	width: 150px;
+	font-size: 15px;
+	font-weight: 200;
+	text-align: left;
+	padding-top: 20px;
+}
+
+.sign_up {
+    border-left: 1px solid #777777;
+	padding: 50px 2px 20px;
+	margin-left: 20px;
+	width: 40%;
+}
+
+.sign_up_title {
+	width: 160px;
+	font-size: 15px;
+	font-weight: 200;
+	text-align: left;
+	padding-top: 30px;
+}
+
+.sign_up_pass {
+	width: 100px;
+	font-size: 15px;
+	font-weight: 200;
+	text-align: left;
+	padding-top: 30px;
+}
+
+.sign_btn {
+	font-size: 17px;
+	font-weight: 200;
+	padding: 3px;
+}
+
+.sign_in_image_box, {
+	width: 35%;
+	text-align: center;
 }
 
 .sign_in_image {
 	width: 200px;
+}
+
+.admin_sign_in_image_box {
+	width: 35%;
+	text-align: center;
 }
 
 .actions {

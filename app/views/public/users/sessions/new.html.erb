@@ -4,28 +4,28 @@
     <div class="sign_in">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :メールアドレス, class:"sign_title" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form_box" %>
         </div>
 
         <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.label :パスワード, class:"sign_title" %>
+          <%= f.password_field :password, autocomplete: "current-password", class:"form_box" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label :ログインを記憶する, class:"sign_title" %>
           </div>
         <% end %>
 
         <div class="actions">
-          <%= f.submit "ログイン" %>
+          <%= f.submit "ログイン", class:"sign_btn" %>
         </div>
       <% end %>
     </div>
-    <div>
+    <div class="sign_in_image_box">
       <%= image_tag '/sarah-gualtieri-F3jf4eYuw_U-unsplash.jpg', class:"sign_in_image", alt: "ラテの写真", title: "ラテ" %>
     </div>
   </div>
