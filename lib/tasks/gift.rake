@@ -1,0 +1,2 @@
+namespace :gift do
+end
