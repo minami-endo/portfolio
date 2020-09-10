@@ -11,14 +11,12 @@
   </div>
 </div>
 <div class="recipe_post_btn">
-
 <% if public_user_signed_in? %>
   <%= form_for(@recipe, url: new_public_recipe_path, method: :get) do |f| %>
       <%= f.hidden_field :item_id, value: @item.id %>
       <%= f.submit "この商品を使ったレシピを投稿する" %>
   <% end %>
 </div>
-
   <div class="headline">この商品のアレンジレシピランキング</div>
     <div class="dot">
     <div class="container">

@@ -1,0 +1,34 @@
+<div class="headline">景品の編集</div>
+<div class="edit_item_background">
+  <div class="container">
+  	<%= form_for(@gift, url: admins_gift_path, method: :patch) do |f| %>
+  	  <div class="row">
+	  	  <div class="col-lg-4">
+	  	  	<%= attachment_image_tag @gift, :image, size:'150x100' %>
+	        <%= f.attachment_field :image %>
+	      </div>
+	      <div class="col-lg-5">
+	      	<table>
+				<tr class="edit_item_table">
+					<td class="edit_table"><%= f.label :景品名 %></td>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr class="edit_item_table">
+					<td class="edit_table"><%= f.label :景品説明 %></td>
+					<td><%= f.text_field :comment %></td>
+				</tr>
+				<tr class="edit_item_table">
+					<td class="edit_table"><%= f.label :景品掲載ステータス %></td>
+					<td><%= f.select :gift_status_i18n, Gift.gift_statuses_i18n.invert %>シーズンが変わると自動的にステータスが変更されます</td>
+				</tr>
+			</table>
+	      </div>
+	      <div class="col-lg-3"></div>
+	  </div>
+	  <div class="row">
+		<div class="create_btn"><%= f.submit "更新する" %></div>
+	  </div>
+	<% end %>
+  </div>
+</div>
+</div>
