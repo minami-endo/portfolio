@@ -24,8 +24,8 @@ require File.expand_path(File.dirname(__FILE__) + "/environment")
 rails_env = ENV['RAILS_ENV'] || :development
 
 set :environment, rails_env
-set :output, 'log/cron.log'
+set :output, "#{Rails.root}/log/cron.log"
 
 every 1.hours do
-  rake 'gift:hoge'
+  rake 'gift_status:published'
 end

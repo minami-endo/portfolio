@@ -1,0 +1,29 @@
+
+<div class="headline">来シーズンの景品掲載情報を作成</div>
+<div class="new_item_background">
+  <div class="container">
+	<%= form_for(@gift, url: admins_gifts_path, method: :post) do |f| %>
+	  	  <div class="row">
+		  	  <div class="col-lg-4">
+		        <%= f.attachment_field :image %>
+		      </div>
+		      <div class="col-lg-5">
+		      	<table>
+					<tr>
+						<td class="title"><%= f.label :景品名 %></td>
+						<td><%= f.text_field :name %></td>
+					</tr>
+					<tr>
+						<td class="title"><%= f.label :景品説明 %></td>
+						<td><%= f.text_field :comment %></td>
+					</tr>
+				</table>
+		      </div>
+		      <div class="col-lg-3"></div>
+		  </div>
+		  <div class="row">
+			<div class="create_btn"><%= f.submit "追加する" %></div>
+		  </div>
+		<% end %>
+	</div>
+</div>

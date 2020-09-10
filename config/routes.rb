@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     get 'users/unsubscribe', to: 'users#unsubscribe', as: 'user_unsubscribe'
     patch 'users/withdraw', to: 'users#withdraw', as: 'user_withdraw'
     resources :users, only: [:show, :edit, :update]
+
+    resources :gifts, only: [:show]
   end
 
   namespace :admins do
@@ -34,6 +36,8 @@ Rails.application.routes.draw do
     resources :items
 
     resources :users, only: [:index, :show]
+
+    resources :gifts, only: [:new, :create, :show, :edit, :update]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
