@@ -1,9 +1,9 @@
 
 
-namespace :gift_status do
-  desc '掲載予定日時を過ぎた景品を掲載状態にする'
+namespace :gift do
+  desc '掲載予定日を過ぎた景品を掲載状態にする'
   task published: :environment do
-    Gift.period.find_each do |period|
+    Gift.next_season_gift.find_each do |gift|
       if period[:end_month] < Time.current
         gift&.published!
       end

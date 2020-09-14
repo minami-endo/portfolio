@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show]
 
+    get 'gifts/nowgift', to: 'gifts#nowgift', as: 'nowgift'
     resources :gifts, only: [:new, :create, :show, :edit, :update]
   end
 
