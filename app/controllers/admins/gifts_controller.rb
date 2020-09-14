@@ -18,6 +18,11 @@ class Admins::GiftsController < ApplicationController
 		#@gift = Gift.order(created_at: :desc).limit(1) @recipe_ranks = Recipe.monthly_top
 	end
 
+	def nowgift
+		@now_gift = Gift.now_season_gift
+		@gift = Gift.next_season_gift
+	end
+
 	def edit
 		@gift = Gift.find(params[:id])
 	end

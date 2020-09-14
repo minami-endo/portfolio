@@ -1,0 +1,29 @@
+
+<div class="headline">今シーズンの景品詳細</div>
+<div class="admins_item_btn">
+  この商品を
+  <%= link_to edit_admins_gift_path(@now_gift) do %>
+    <i class="fas fa-edit"></i>編集する
+  <% end %>
+    <%if Gift.next_season_gift.present? %>
+    <% else %>
+	  ・
+	  <%= link_to new_admins_gift_path do %>
+	    <i class="fas fa-plus"></i>来シーズンの景品を作成しておく
+	  <% end %>
+	<% end %>
+</div>
+<div class="show_item_container">
+  <div class="item_container flex">
+    <div class="item_image"><%= attachment_image_tag @now_gift, :image, size:'230x160' %></div>
+    <div class="item_content">
+      <div class="item_name"><%= @now_gift.name %></div><br>
+      <div class="item_caption"><%= @now_gift.comment %></div><br>
+      <div class="item_price"><%= @now_gift.gift_status_i18n %></div>
+    </div>
+  </div>
+  <div class="next_gift">
+    <%= link_to admins_gift_path(@gift) do %>
+      来シーズンの景品を確認する<i class="fas fa-forward"></i>
+    <% end %>
+</div>
