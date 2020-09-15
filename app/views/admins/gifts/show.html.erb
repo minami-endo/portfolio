@@ -13,13 +13,13 @@
 	  <% end %>
 	<% end %>
 </div>
-<div class="show_item_container">
+<div class="gift_container">
   <div class="item_container flex">
     <div class="item_image"><%= attachment_image_tag @gift, :image, size:'230x160' %></div>
     <div class="item_content">
-      <div class="item_name"><%= @gift.name %></div><br>
-      <div class="item_caption"><%= @gift.comment %></div><br>
-      <div class="item_price"><%= @gift.gift_status_i18n %></div>
+      <div class="gift_name"><%= @gift.name %></div><br>
+      <div class="gift_caption"><%= @gift.comment %></div><br>
+      <div class="item_price">掲載の有無：<%= @gift.gift_status_i18n %></div>
     </div>
   </div>
 </div>

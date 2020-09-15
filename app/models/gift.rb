@@ -10,7 +10,7 @@ class Gift < ApplicationRecord
     def self.next_season_gift
 	  beginning_of_month = period[:start_month]
 	  end_of_month = period[:end_month]
-	  where(created_at: beginning_of_month..end_of_month)
+	  where(created_at: beginning_of_month..end_of_month).first
 	end
 
     def self.period
@@ -34,7 +34,7 @@ class Gift < ApplicationRecord
 	def self.now_season_gift
 	  pre_beginning_of_month = previous_period[:previous_start_month]
 	  pre_end_of_month = previous_period[:previous_end_month]
-	  where(created_at: pre_beginning_of_month..pre_end_of_month)
+	  where(created_at: pre_beginning_of_month..pre_end_of_month).first
 	end
 
 	def self.previous_period

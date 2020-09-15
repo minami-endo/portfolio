@@ -1,3 +1,37 @@
 // Place all the styles related to the public/Gifts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.gift_container > .flex {
+	overflow: visible !important;
+	background: -webkit-linear-gradient(45deg, #ffd47d 10%, #ffd4e9 90%);
+	background: -moz-linear-gradient(45deg, #ffd47d 10%, #ffd4e9 90%);
+	background: -ms-linear-gradient(45deg, #ffd47d 10%, #ffd4e9 90%);
+	background: -o-linear-gradient(45deg, #ffd47d 10%, #ffd4e9 90%);
+	background: linear-gradient(45deg, #ffd47d 10%, #ffd4e9 90%);
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.gift_name {
+    text-align: ceneter;
+	font-size: 20px;
+	margin: 8px 20px;
+	padding: 3px 0;
+	background-color: #FFFFFF;
+	width: 230px;
+}
+
+.gift_caption {
+    text-align: ceneter;
+	font-size: 15px;
+	padding: 3px 0 0;
+}
+
+
