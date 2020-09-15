@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     patch 'users/withdraw', to: 'users#withdraw', as: 'user_withdraw'
     resources :users, only: [:show, :edit, :update]
 
-    resources :gifts, only: [:show]
+    get 'gifts/nowgift', to: 'gifts#nowgift', as: 'nowgift'
   end
 
   namespace :admins do
