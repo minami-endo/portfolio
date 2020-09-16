@@ -13,9 +13,6 @@ class Admins::GiftsController < ApplicationController
 
 	def show
 		@gift = Gift.next_season_gift
-		#@gift = Gift.find(params[:id])
-		#@gifts = Gift.all
-		#@gift = Gift.order(created_at: :desc).limit(1) @recipe_ranks = Recipe.monthly_top
 	end
 
 	def nowgift
@@ -24,11 +21,11 @@ class Admins::GiftsController < ApplicationController
 	end
 
 	def edit
-		@gift = Gift.next_season_gift
+		@gift = Gift.find(params[:id])
 	end
 
 	def update
-		@gift = Gift.next_season_gift
+		@gift = Gift.find(params[:id])
 	    @gift.update(gift_params)
 	    redirect_to admins_gift_path(@gift)
 	end

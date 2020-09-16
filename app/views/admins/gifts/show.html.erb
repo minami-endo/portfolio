@@ -2,9 +2,10 @@
 <div class="headline">来シーズンの景品詳細</div>
 <div class="admins_item_btn">
   この商品を
-  <%= link_to edit_admins_gift_path(@gift) do %>
-    <i class="fas fa-edit"></i>編集する
-  <% end %>
+    <%= form_for(@gift, url: edit_admins_gift_path(@gift), method: :get) do |f| %>
+      <%= f.hidden_field :id, value: @gift.id %>
+      <i class="fas fa-edit"></i><%= f.submit "編集する" %>
+    <% end %>
     <%if Gift.next_season_gift.present? %>
     <% else %>
 	  ・
