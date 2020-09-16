@@ -24,11 +24,11 @@ class Admins::GiftsController < ApplicationController
 	end
 
 	def edit
-		@gift = Gift.find(params[:id])
+		@gift = Gift.next_season_gift
 	end
 
 	def update
-		@gift = Gift.find(params[:id])
+		@gift = Gift.next_season_gift
 	    @gift.update(gift_params)
 	    redirect_to admins_gift_path(@gift)
 	end
