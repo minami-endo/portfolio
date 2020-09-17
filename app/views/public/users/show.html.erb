@@ -62,7 +62,7 @@
 <div class="headline">投稿したアレンジレシピ</div>
   <div class="dot">
   <div class="container">
-    <% @recipes.each do |recipe| %>
+    <% @recipes.eager_load(:item).each do |recipe| %>
       <div class="recipe_box">
         <div class="user_recipe">
           <%= link_to public_recipe_path(recipe) do %>
