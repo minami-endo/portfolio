@@ -56,7 +56,7 @@
           </div>
         </div>
       <% end %>
-      <% not_likes_recipes.each do |recipe_rank| %>
+      <% not_likes_recipes.eager_load(:item).each do |recipe_rank| %>
         <div class="show_item_recipe_box">
           <div class="rank">第<%= (@recipe_ranks.count + 1).to_s %>位</div>
           <div class="show_item_recipe_flex">
@@ -79,7 +79,8 @@
       <div class="page"><%= paginate not_likes_recipes %></div>
     </div>
   </div>
-<% elsif %>
+<% elsif admins_admin_signed_in? %>
+<% else %>
   <div class="not_member_box">
     <div class="not_member_message">
       <p>会員登録すると<p>

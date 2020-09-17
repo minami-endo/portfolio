@@ -1,10 +1,14 @@
 <div class="headline">今シーズンの景品詳細</div>
 <div class="gift_container">
   <div class="item_container flex">
-    <div class="item_image"><%= attachment_image_tag @now_gift, :image, size:'230x160' %></div>
-    <div class="item_content">
-      <div class="gift_name"><%= @now_gift.name %></div><br>
-      <div class="gift_caption"><%= @now_gift.comment %></div><br>
-    </div>
+  	<% if @now_gift.gift_status == "published" %>
+	  <div class="item_image"><%= attachment_image_tag @now_gift, :image, size:'230x160' %></div>
+	  <div class="item_content">
+	    <div class="gift_name"><%= @now_gift.name %></div><br>
+	    <div class="gift_caption"><%= @now_gift.comment %></div><br>
+	  </div>
+	<% else %>
+      <p>景品が公開されるまで、今しばらくお待ちください。</p>
+    <% end %>
   </div>
 </div>

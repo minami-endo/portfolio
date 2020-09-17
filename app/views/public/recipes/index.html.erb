@@ -9,7 +9,7 @@
 	  <% end %>
 	</div>
 	  <div class="container">
-	    <% @recipes.each do |recipe| %>
+	    <% @recipes.eager_load(:user).each do |recipe| %>
 	      <div class="index_recipe_box">
 	      	<div class="index_recipe_image">
 	      	  <%= link_to public_recipe_path(recipe) do %>
