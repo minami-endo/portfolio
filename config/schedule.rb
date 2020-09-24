@@ -19,7 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 rails_env = ENV['RAILS_ENV'] || :development
 
