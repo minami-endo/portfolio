@@ -22,18 +22,11 @@
   <script>
   // 1. データの準備
   var dataset = [
-    { "name": "item.name", "value": 5 },
-    { "name": "B", "value": 6 },
-    { "name": "C", "value": 8 },
-    { "name": "D", "value": 1 },
-    { "name": "E", "value": 2 },
-    { "name": "F", "value": 6 },
-    { "name": "G", "value": 8 },
-    { "name": "H", "value": 6 },
-    { "name": "I", "value": 10 },
-    { "name": "J", "value": 9 }
-  ]
-  
+  <% @items.each do |item| %>
+    {'name':`<%= item.name %>`, 'value':<%= item.recipes.count %>},
+  <% end %>
+  ];
+
   var width = 400; // グラフの幅
   var height = 300; // グラフの高さ
   var padding = 30; // スケール表示用マージン
