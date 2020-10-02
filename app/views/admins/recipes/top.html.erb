@@ -6,6 +6,7 @@
 <div class="now_top_recipe">
 <div class="dot">
 <div class="container">
+  <% if @recipe_ranks.present? %>
   <div class="admins_recipi_name">レシピ名「<%= @recipe_ranks.name %>」</div>
   	  <div class="row">
 	  	  <div class="show_recipe_image col-lg-4">
@@ -46,6 +47,7 @@
 	      <%= render 'public/likes/admin_like', recipe: @recipe_ranks %>
 	    </div>
 	  </div>
+  <% end %>
 </div>
 </div>
 </div>

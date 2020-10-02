@@ -16,15 +16,16 @@
       <i class="fas fa-edit"></i><%= f.submit "編集する" %>
     <% end %>
     <% if Gift.next_season_gift.present? %>
+      <div class="next_gift">
+        <%= link_to admins_gift_path(@gift) do %>
+          来シーズンの景品を確認する<i class="fas fa-forward"></i>
+        <% end %>
+      </div>
     <% else %>
-      ・
-      <%= link_to new_admins_gift_path do %>
-        <i class="fas fa-plus"></i>来シーズンの景品を作成しておく
-      <% end %>
+      <div class="now_gift">
+        <%= link_to new_admins_gift_path do %>
+          <i class="fas fa-plus"></i>来シーズンの景品を作成しておく
+        <% end %>
+      </div>
     <% end %>
-</div>
-<div class="next_gift">
-  <%= link_to admins_gift_path(@gift) do %>
-    来シーズンの景品を確認する<i class="fas fa-forward"></i>
-  <% end %>
 </div>
