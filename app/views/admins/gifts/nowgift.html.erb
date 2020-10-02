@@ -15,7 +15,7 @@
       <%= f.hidden_field :id, value: @now_gift.id %>
       <i class="fas fa-edit"></i><%= f.submit "編集する" %>
     <% end %>
-    <% if Gift.next_season_gift.present? %>
+    <% if @gift.present? %>
       <div class="next_gift">
         <%= link_to admins_gift_path(@gift) do %>
           来シーズンの景品を確認する<i class="fas fa-forward"></i>
