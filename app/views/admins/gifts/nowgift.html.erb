@@ -1,6 +1,7 @@
 
 <div class="headline">今シーズンの景品詳細</div>
 <div class="gift_container">
+<% if @now_gift.present? %>
   <div class="item_container flex">
     <div class="item_image"><%= attachment_image_tag @now_gift, :image, size:'230x160' %></div>
     <div class="item_content">
@@ -15,6 +16,7 @@
       <%= f.hidden_field :id, value: @now_gift.id %>
       <i class="fas fa-edit"></i><%= f.submit "編集する" %>
     <% end %>
+<% end %>
     <% if @gift.present? %>
       <div class="next_gift">
         <%= link_to admins_gift_path(@gift) do %>
