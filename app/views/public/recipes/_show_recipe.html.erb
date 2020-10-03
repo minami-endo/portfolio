@@ -10,7 +10,9 @@
 	      	<table class="table">
 				<tr>
 					<td class="recipe_title">材料</td>
-					<td><%= @recipe.ingredient %></td>
+					<% @recipe.ingredients.each do |ingredient| %>
+					  <td><%= ingredient.name %></td>
+					<% end %>
 				</tr>
 				<tr>
 					<td class="recipe_title">調理時間</td>

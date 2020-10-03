@@ -3,10 +3,11 @@ class Recipe < ApplicationRecord
   belongs_to :item
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :ingredients, dependent: :destroy
+  accepts_nested_attributes_for :ingredients
   has_many :liking_users, through: :likes, source: :user
 
   validates :name, presence: true, length: { minimum: 1, maximum: 20 }
-  validates :ingredient, presence: true
   validates :time, presence: true
   validates :how_to_make, presence: true, length: { minimum: 1, maximum: 200 }
   validates :item_id, presence: true

@@ -18,6 +18,7 @@ class Public::RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @ingredient = @recipe.ingredients.build
     @item = Item.find(params[:recipe][:item_id])
   end
 
@@ -26,6 +27,7 @@ class Public::RecipesController < ApplicationController
     @item = Item.find(params[:recipe][:item_id])
     @recipe.user_id = current_public_user.id
     @recipe.save
+    byebug
     redirect_to public_recipes_path
   end
 
@@ -52,7 +54,7 @@ class Public::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:user_id, :item_id, :image, :name, :ingredient, :time, :difficulty_level, :how_to_make)
+    params.require(:recipe).permit(:user_id, :item_id, :image, :name, :time, :difficulty_level, :how_to_make, ingredients_attributes: [:id, :recipe_id, :name])
   end
 
   def search_params

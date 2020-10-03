@@ -16,7 +16,9 @@
 	      	<table class="table">
 				<tr>
 					<td class="recipe_title">材料</td>
-					<td><%= @recipe_ranks.ingredient %></td>
+					<% @recipe_ranks.ingredients.each do |ingredient| %>
+					  <td><%= ingredient.name %></td>
+					<% end %>
 				</tr>
 				<tr>
 					<td class="recipe_title">調理時間</td>
@@ -67,7 +69,9 @@
 	      	<table class="table">
 				<tr>
 					<td class="recipe_title">材料</td>
-					<td><%= @previous_top_ranks.ingredient %></td>
+					<% @previous_top_ranks.ingredients.each do |ingredient| %>
+					  <td><%= ingredient.name %></td>
+					<% end %>
 				</tr>
 				<tr>
 					<td class="recipe_title">調理時間</td>

@@ -14,10 +14,12 @@
 					<td class="title"><%= f.label :レシピ名 %></td>
 					<td><%= f.text_field :name %></td>
 				</tr>
+				<%= f.fields_for :ingredients do |ingredient| %>
 				<tr>
-					<td class="title"><%= f.label :材料 %></td>
-					<td><%= f.text_field :ingredient %></td>
+					<td class="title"><%= ingredient.label :材料 %></td>
+					<td><%= ingredient.text_field :name %></td>
 				</tr>
+				<% end %>
 				<tr>
 					<td class="title"><%= f.label :調理時間 %>（分）</td>
 					<td><%= f.text_field :time %></td>

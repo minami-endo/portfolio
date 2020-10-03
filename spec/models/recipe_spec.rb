@@ -27,17 +27,6 @@ RSpec.describe Recipe, type: :model do
 
   context "データが正しく保存されない" do
     let!(:recipe) do
-      build(:recipe, user_id: user.id, item_id: item.id, ingredient: '')
-    end
-
-    it "ingredientが入力されていないので保存されない" do
-      expect(recipe).to be_invalid
-      expect(recipe.errors[:ingredient]).to include(I18n.t('errors.messages.blank'))
-    end
-  end
-
-  context "データが正しく保存されない" do
-    let!(:recipe) do
       build(:recipe, user_id: user.id, item_id: item.id, time: '')
     end
 
