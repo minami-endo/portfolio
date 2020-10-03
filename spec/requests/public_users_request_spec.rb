@@ -13,7 +13,7 @@ RSpec.describe "Users", type: :request do
         expect(response.status).to eq 200
       end
       it 'タイトルが正しく表示されていること' do
-        expect(response.body).to include("Eメール")
+        expect(response.body).to include("メール")
       end
     end
   end
@@ -28,7 +28,7 @@ RSpec.describe "Users", type: :request do
         expect(response.status).to eq 200
       end
       it 'タイトルが正しく表示されていること' do
-        expect(response.body).to include("Eメール")
+        expect(response.body).to include("メール")
       end
     end
   end
@@ -60,7 +60,7 @@ RSpec.describe "Users", type: :request do
         expect(response.status).to eq 200
       end
       it 'タイトルが正しく表示されていること' do
-        expect(response.body).to include("プロフィール画面へ")
+        expect(response.body).to include("編集")
       end
     end
   end

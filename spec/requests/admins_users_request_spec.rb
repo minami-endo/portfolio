@@ -32,7 +32,7 @@ RSpec.describe "Users", type: :request do
       end
       it "タイトルが正しく表示されていること" do
         get admins_user_path(user)
-        expect(response.body).to include("このユーザーが投稿したレシピ")
+        expect(response.body).to include("ユーザー詳細")
       end
     end
   end
