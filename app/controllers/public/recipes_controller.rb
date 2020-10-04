@@ -27,7 +27,6 @@ class Public::RecipesController < ApplicationController
     @item = Item.find(params[:recipe][:item_id])
     @recipe.user_id = current_public_user.id
     @recipe.save
-    byebug
     redirect_to public_recipes_path
   end
 
