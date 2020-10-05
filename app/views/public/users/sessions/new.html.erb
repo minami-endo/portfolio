@@ -2,6 +2,7 @@
 <div class="background">
   <div class="signin_flex">
     <div class="sign_in">
+      <%= flash[:error] %>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
           <%= f.label :メールアドレス, class:"sign_title" %>
