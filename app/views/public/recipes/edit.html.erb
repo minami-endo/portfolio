@@ -16,9 +16,17 @@
 				</tr>
 				<%= f.fields_for :ingredients do |ingredient| %>
 				<tr>
-					<td class="table"><%= ingredient.label :材料 %></td>
-					<td><%= ingredient.text_field :name %></td>
+					<td class="title"><%= ingredient.label :材料 %></td>
+					<td>
+					  <div class="box" data-formno="0">
+					    <div name="input[0]" class="namae"><%= ingredient.text_field :name %></div>
+						<p class="delbtn"><input type="button" value="－" class="del pluralBtn"></p>
+						<p class="addbtn"><input type="button" value="＋" class="add pluralBtn"></p>
+						<input id="count" type="hidden" value="0">
+					  </div>
+					</td>
 				</tr>
+				
 				<% end %>
 				<tr>
 					<td class="table"><%= f.label :調理時間 %></td>
@@ -42,3 +50,22 @@
 	<% end %>
   </div>
 </div>
+<script type="text/javascript">
+$(document).on("click", ".add", function() {
+	$('#count').val(Number($('#count').val()) + 1)
+	var count = $('#count').val()
+	var html = `<div class="box" data-formno="0">
+					<div name="input[${count}]" class="namae"><input type="text" name="recipe[ingredients_attributes][${count}][name]" id="recipe_ingredients_attributes_0_name"></div>
+					<p class="delbtn"><input type="button" value="－" class="del pluralBtn"></p>
+					<p class="addbtn"><input type="button" value="＋" class="add pluralBtn"></p>
+					<input id="count" type="hidden" value="0">
+			    </div>`
+    $(this).parent().before(html);
+});
+$(document).on("click", ".del", function() {
+    var target = $(this).parent();
+    if (target.parent().children().length > 1) {
+        target.parent(".box").remove();
+    }
+});
+</script>
