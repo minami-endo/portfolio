@@ -41,6 +41,7 @@ class Public::RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
+    byebug
     redirect_to public_recipes_path
   end
 
