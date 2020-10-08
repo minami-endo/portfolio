@@ -36,6 +36,7 @@ class Public::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients.where(deleted_flag: false)
   end
 
   def update

@@ -17,10 +17,15 @@
 				</tr>
 				<%= f.fields_for :ingredients do |ingredient| %>
 				<tr>
-					<td class="title"><%= ingredient.label :材料 %></td>
+					<% if ingredient.object.id == @recipe.ingredients.first.id %>
+					  <td class="title"><%= ingredient.label :材料 %></td>
+					<% else %>
+					  <td></td>
+					<% end %>
 					<td>
 					  <div class="box" data-formno="0">
 					    <div name="input[0]" class="namae"><%= ingredient.text_field :name %></div>
+					    <input type="hidden" name="recipe[ingredients_attributes][0][deleted_flag]" value="0">
 						<p class="delbtn"><input type="button" value="－" class="del pluralBtn"></p>
 					  </div>
 					</td>
@@ -58,11 +63,10 @@
 <script type="text/javascript">
 $(document).on("click", ".add", function() {
 	var count = $('#count').val()
-	count = 0
 	$('#count').val(Number($('#count').val()) + 1)
-	
 	var html = `<div class="box" data-formno="0">
 					<div name="input[${count}]" class="namae"><input type="text" name="recipe[ingredients_attributes][${count}][name]" id="recipe_ingredients_attributes_0_name"></div>
+					<input type="hidden" name="recipe[ingredients_attributes][0][deleted_flag]" value="0">
 					<p class="delbtn"><input type="button" value="－" class="del pluralBtn"></p>
 			    </div>`
     $(this).parent().before(html);
