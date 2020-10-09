@@ -20,7 +20,7 @@
 					<td>
 					  <div class="box" data-formno="0">
 					    <div name="input[0]" class="namae"><%= ingredient.text_field :name %></div>
-						<p class="delbtn"><input type="button" value="－" class="del pluralBtn"></p>
+						<p class="delbtn"><input type="button" value="－" class="del pluralBtn" disabled></p>
 					  </div>
 					</td>
 				</tr>
@@ -65,14 +65,10 @@ $(document).on("click", ".add", function() {
 					<p class="delbtn"><input type="button" value="－" class="del pluralBtn"></p>
 			    </div>`
     $(this).parent().before(html);
+    $('.del').prop('disabled', false)
 });
 $(document).on("click", ".del", function() {
     var target = $(this).parent();
       target.parent(".box").remove();
 });
 </script>
-
-
-
-
-
