@@ -17,22 +17,27 @@
 				</tr>
 				<%= f.fields_for :ingredients do |ingredient| %>
 				<tr>
-					<td class="title"><%= ingredient.label :材料 %></td>
+					<% if ingredient.object.id == @recipe.ingredients.first.id %>
+					  <td class="title"><%= ingredient.label :材料 %></td>
+					<% else %>
+					  <td></td>
+					<% end %>
 					<td>
-					  <div class="box" data-formno="0">
+					  <div value="<%= ingredient.object.id %>" class="box" data-formno="0">
 					    <div name="input[0]" class="namae"><%= ingredient.text_field :name %></div>
-						<p class="delbtn"><input type="button" value="－" class="del pluralBtn"></p>
+						<p class="delbtn"><input type="button" value="ー" class="del pluralBtn"><input id="id" type="hidden" value="<%= ingredient.object.id %>"></p>
 					  </div>
 					</td>
 				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<p class="addbtn"><input type="button" value="＋" class="add pluralBtn"></p>
-						<input id="count" type="hidden" value="0">
-					</td>
-				</tr>
+				<%= ingredient.hidden_field :deleted_flag, value: 0, id: "deleted_flag_#{ingredient.object.id}" %>
 				<% end %>
+				<tr>
+				  <td></td>
+				  <td>
+				  	<p class="addbtn"><input type="button" value="＋" class="add pluralBtn"></p>
+				    <input id="count" type="hidden" value="<%= @recipe.ingredients.count %>">
+				  </td>
+				</tr>
 				<tr>
 					<td class="table"><%= f.label :調理時間 %></td>
 					<td><%= f.text_field :time %></td>
@@ -58,17 +63,18 @@
 <script type="text/javascript">
 $(document).on("click", ".add", function() {
 	var count = $('#count').val()
-	count = 0
 	$('#count').val(Number($('#count').val()) + 1)
-	
 	var html = `<div class="box" data-formno="0">
 					<div name="input[${count}]" class="namae"><input type="text" name="recipe[ingredients_attributes][${count}][name]" id="recipe_ingredients_attributes_0_name"></div>
+					<input type="hidden" name="recipe[ingredients_attributes][0][deleted_flag]" value="0">
 					<p class="delbtn"><input type="button" value="－" class="del pluralBtn"></p>
 			    </div>`
     $(this).parent().before(html);
 });
-$(document).on("click", ".del", function() {
+$(document).on("click", '.del', function() {
     var target = $(this).parent();
-      target.parent(".box").remove();
+    var id = target.find('#id').val()
+    $(`#deleted_flag_${id}`).val('1')
+    target.parent(".box").remove();
 });
 </script>
