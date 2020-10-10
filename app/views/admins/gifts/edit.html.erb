@@ -17,10 +17,6 @@
 					<td class="edit_table"><%= f.label :景品説明 %></td>
 					<td><%= f.text_field :comment %></td>
 				</tr>
-				<tr class="edit_item_table">
-					<td class="edit_table"><%= f.label :景品掲載ステータス %></td>
-					<td><%= f.select :gift_status_i18n, Gift.gift_statuses_i18n.invert %>シーズンが変わると自動的にステータスが変更されます</td>
-				</tr>
 			</table>
 	      </div>
 	      <div class="col-lg-3"></div>

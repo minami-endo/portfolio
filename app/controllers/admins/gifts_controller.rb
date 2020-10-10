@@ -8,7 +8,7 @@ class Admins::GiftsController < ApplicationController
   def create
     @gift = Gift.new(gift_params)
     @gift.save
-    redirect_to admins_gift_path(@gift)
+    redirect_to admins_nowgift_path
   end
 
   def show
@@ -27,7 +27,7 @@ class Admins::GiftsController < ApplicationController
   def update
     @gift = Gift.find(params[:id])
     @gift.update(gift_params)
-    redirect_to admins_gift_path(@gift)
+    redirect_to admins_nowgift_path
   end
 
   private
