@@ -26,8 +26,11 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @item = Item.find(params[:recipe][:item_id])
     @recipe.user_id = current_public_user.id
-    @recipe.save
-    redirect_to public_recipes_path
+    if @recipe.save
+      redirect_to public_recipes_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -40,8 +43,11 @@ class Public::RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    @recipe.update(recipe_params)
-    redirect_to public_recipes_path
+    if @recipe.update(recipe_params)
+      redirect_to public_recipes_path
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -1,6 +1,11 @@
 
 <div class="new_recipe_container">
   <div class="headline">レシピの投稿</div>
+  <ul style="margin-left: 700px; color: red; text-align: left">
+    <% @recipe.errors.full_messages.each do |message| %>
+  	  <li><%= message %></li>
+  	<% end %>
+  </ul>
 <div class="dot">
   <div class="container">
   	<%= form_for(@recipe, url: public_recipes_path, method: :post) do |f| %>

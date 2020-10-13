@@ -12,7 +12,9 @@
 					<td class="recipe_title">材料</td>
 					<td>
 						<% @recipe.ingredients.each do |ingredient| %>
-						  <%= ingredient.name %></br>
+							<% if !ingredient.deleted_flag && ingredient.name.present? %>
+							  <%= ingredient.name %></br>
+							<% end %>
 						<% end %>
 				    </td>
 				</tr>
