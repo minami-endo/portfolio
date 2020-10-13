@@ -19,7 +19,6 @@
       <div class="page"><%= paginate @items %></div>
   </div>
   <p class="graph">投稿されたレシピ数</p>
-  <div class="col-lg-4">
 	  <script>
 	  var dataset = [
 	  <% @items.each do |item| %>
@@ -61,5 +60,4 @@
 	    .attr("height", function(d) { return height - padding - yScale(d.value); })
 	    .attr("fill", "steelblue");
 	  </script>
-	</div>
 

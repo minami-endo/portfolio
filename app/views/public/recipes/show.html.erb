@@ -4,7 +4,7 @@
 
 	<div class="show_recipe_iine">
 		<% if public_user_signed_in? %>
-		  <%= render 'public/likes/like', recipe: @recipe %>
+		  いいね数<%= render 'public/likes/admin_like', recipe: @recipe %>
 		<% else %>
 		  <%= render 'public/likes/admin_like', recipe: @recipe %>
 		<% end %>
