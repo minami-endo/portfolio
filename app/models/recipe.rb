@@ -3,7 +3,7 @@ class Recipe < ApplicationRecord
   belongs_to :item
   belongs_to :user
   has_many :likes, dependent: :destroy
-  has_many :ingredients, -> { where(deleted_flag: false) }, dependent: :destroy
+  has_many :ingredients, dependent: :destroy
   accepts_nested_attributes_for :ingredients
   has_many :liking_users, through: :likes, source: :user
 

@@ -1,13 +1,17 @@
 
 <div class="edit_recipe_container">
   <div class="headline">レシピの編集</div>
+  <ul style="margin-left: 720px; color: red; text-align: left">
+    <% @recipe.errors.full_messages.each do |message| %>
+  	  <li><%= message %></li>
+  	<% end %>
+  </ul>
 
   <div class="container">
   	<%= form_for(@recipe, url: public_recipe_path(@recipe), method: :patch) do |f| %>
   	  <div class="row">
 	  	  <div class="col-lg-4">
 	        <%= f.attachment_field :image %>
-	        <p>必ず画像を選択してください！</p>
 	      </div>
 	      <div class="col-lg-5">
 	      	<table>
@@ -16,20 +20,22 @@
 					<td><%= f.text_field :name %></td>
 				</tr>
 				<%= f.fields_for :ingredients do |ingredient| %>
-				<tr>
-					<% if ingredient.object.id == @recipe.ingredients.first.id %>
-					  <td class="title"><%= ingredient.label :材料 %></td>
-					<% else %>
-					  <td></td>
+					<% if !ingredient.object.deleted_flag && ingredient.object.name.present? %>
+						<tr>
+							<% if ingredient.object.id == @recipe.ingredients.first.id %>
+							  <td class="title"><%= ingredient.label :材料 %></td>
+							<% else %>
+							  <td></td>
+							<% end %>
+							<td>
+							  <div value="<%= ingredient.object.id %>" class="box" data-formno="0">
+							    <div name="input[0]" class="namae"><%= ingredient.text_field :name %></div>
+								<p class="delbtn"><input type="button" value="ー" class="del pluralBtn"><input id="id" type="hidden" value="<%= ingredient.object.id %>"></p>
+							  </div>
+							</td>
+						</tr>
+						<%= ingredient.hidden_field :deleted_flag, value: 0, id: "deleted_flag_#{ingredient.object.id}" %>
 					<% end %>
-					<td>
-					  <div value="<%= ingredient.object.id %>" class="box" data-formno="0">
-					    <div name="input[0]" class="namae"><%= ingredient.text_field :name %></div>
-						<p class="delbtn"><input type="button" value="ー" class="del pluralBtn"><input id="id" type="hidden" value="<%= ingredient.object.id %>"></p>
-					  </div>
-					</td>
-				</tr>
-				<%= ingredient.hidden_field :deleted_flag, value: 0, id: "deleted_flag_#{ingredient.object.id}" %>
 				<% end %>
 				<tr>
 				  <td></td>
