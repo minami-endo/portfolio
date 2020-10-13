@@ -39,7 +39,7 @@
         </div>
         <div class="ranking_info">
           <p>所要時間：<%= monthly_ranking.time %>分</p>
-          <p>難易度：<% monthly_ranking.difficulty_level %></p>
+          <p>難易度：<%= monthly_ranking.difficulty_level_i18n %></p>
         </div>
 	      <div class="ranking_iine"><%= render 'public/likes/admin_like', recipe: monthly_ranking %></div>
         <div class="create">投稿日時：<%= monthly_ranking.created_at.to_s(:datetime_jp) %></div>
